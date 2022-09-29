@@ -1,0 +1,71 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "ESNext.AsyncIterable"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    // SSR & SSG
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    // Path & alias
+    "baseUrl": "./src/",
+    "paths": {
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@constants/*": [
+        "constants/*"
+      ],
+      "@generated/*": [
+        "generated/*"
+      ],
+      "@graphql/*": [
+        "graphql/*"
+      ],
+      "@hooks": [
+        "hooks"
+      ],
+      "@pages": [
+        "pages"
+      ],
+      "@services": [
+        "services"
+      ],
+      "@stores/*": [
+        "stores/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    ".next",
+    "node_modules",
+    "tests",
+  ]
+}

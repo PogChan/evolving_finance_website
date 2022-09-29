@@ -1,0 +1,79 @@
+name: Deploy production project to Vercel
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Checkout node ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Run Cypress
+        uses: cypress-io/github-action@v4
+        with:
+          config-file: cypress.config.ts
+          build: yarn run build
+          start: yarn start
+
+      - name: Upload screenshots
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+
+#  deploy:
+#    name: Deploy
+#    needs: test
+#
+#    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+#    runs-on: ubuntu-latest
+#
+#    strategy:
+#      matrix:
+#        node-version: [16.x]
+#
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: Checkout node ${{ matrix.node-version }}
+#        uses: actions/setup-node@v2
+#        with:
+#          node-version: ${{ matrix.node-version }}
+#
+#      - name: Install Vercel CLI
+#        run: npm install --global vercel@latest
+#
+#      - name: Pull Vercel Environment Information
+#        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+#
+#      - name: Build Project Artifacts
+#        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+#
+#      - name: Deploy Project Artifacts to Vercel
+#        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
