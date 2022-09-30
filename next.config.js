@@ -8,8 +8,7 @@ const nextConfig = {
   swcMinify: true,
   // Env
   env: {
-    SITE_URL: dev ? 'http://localhost:3000' : '',
-    APOLLO_URI: dev ? 'http://localhost:3000/api/graphql' : '',
+    SITE_URL: dev ? 'http://localhost:3000' : 'https://evolving-finance.vercel.app',
   },
   // Images domains
   images: {

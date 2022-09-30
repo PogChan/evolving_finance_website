@@ -1,4 +1,4 @@
-import HomePage from '@db/pages/home-page.json'
+import HomePage from '@db/home-page.json'
 import { QueryGetHomePageArgs } from '@generated/graphql'
 
 export const homePageResolver = {

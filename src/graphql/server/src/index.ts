@@ -3,7 +3,6 @@ import { makeExecutableSchema } from '@graphql-tools/schema'
 
 // Types
 const typeDefs = [{ ...homePageTypeDefs }]
-
 // Resolvers
 const resolvers = [{ ...homePageResolver }]
 

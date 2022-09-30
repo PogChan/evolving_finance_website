@@ -1,0 +1,57 @@
+.h_1 {
+  font-size: 4.2rem;
+}
+
+.h_2 {
+  font-size: 3.2rem;
+}
+
+.h_3 {
+  font-size: 2.2rem;
+}
+
+.p_l {
+  font-size: 1.8rem;
+}
+
+.p_m {
+  font-size: 1.6rem;
+}
+
+.p_s {
+  font-size: 1.2rem;
+}
+
+.link {
+  position: relative;
+  cursor: pointer;
+  color: var(--font-secondary-color);
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    left: 50%;
+    bottom: -3px;
+    transform: translateX(-50%);
+    background-color: var(--font-secondary-color);
+    transition: width var(--transition);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.ellipsis {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
