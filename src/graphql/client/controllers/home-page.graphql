@@ -1,0 +1,8 @@
+query GetHomePage($input: InputHomePage!) {
+  getHomePage(input: $input) {
+    data {
+      id
+      title
+    }
+  }
+}

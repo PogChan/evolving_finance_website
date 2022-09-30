@@ -35,6 +35,9 @@
       "@constants/*": [
         "constants/*"
       ],
+      "@db/*": [
+        "db/*"
+      ],
       "@generated/*": [
         "generated/*"
       ],
