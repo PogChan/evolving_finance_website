@@ -1,0 +1,113 @@
+@import '@styles/breakpoints.scss';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 1;
+
+  &:before {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: var(--body-bg-color-black);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: var(--body-bg-color-black);
+  }
+
+  &__content {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 40px;
+    align-items: center;
+    width: 100%;
+    background-color: var(--body-bg-color-black);
+    height: 100%;
+    z-index: 1;
+  }
+
+  &__header_logo {
+    pointer-events: none;
+    display: flex;
+    width: 100%;
+    max-width: 228px;
+    height: 100%;
+    background-color: var(--body-bg-color);
+  }
+
+  &__nav_link {
+    display: none;
+    margin: 0 auto;
+  }
+
+  &__log_in {
+    display: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    color: inherit;
+    transition: color var(--transition);
+
+    @include hover {
+      color: var(--font-color-gold);
+    }
+  }
+
+  &__start_here_btn {
+    display: none;
+  }
+
+  &__burger_menu_btn {
+    display: block;
+  }
+
+  @include laptop {
+    &:after {
+      background-color: var(--body-bg-color-header);
+    }
+
+    &__content {
+      grid-template-columns: auto 1fr auto auto;
+      background-color: var(--body-bg-color-header);
+    }
+
+    &__log_in {
+      display: block;
+      margin: auto 0 auto auto;
+    }
+
+    &__start_here_btn {
+      display: block;
+    }
+  }
+
+  @include desktop {
+    &__content {
+      grid-template-columns: auto 1fr auto auto;
+    }
+
+    &__nav_link {
+      display: block;
+    }
+
+    &__burger_menu_btn {
+      display: none;
+    }
+  }
+}

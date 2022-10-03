@@ -1,0 +1,23 @@
+query GetFooter {
+  getFooter {
+    data {
+      id
+      footerLinks {
+        name
+        links {
+          name
+          href
+        }
+      }
+      footerSocialTitle
+      footerSocialIcons {
+        href
+        icon
+      }
+      footerBottomLinks {
+        name
+        href
+      }
+    }
+  }
+}

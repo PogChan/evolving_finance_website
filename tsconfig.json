@@ -21,40 +21,37 @@
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
     // Path & alias
-    "baseUrl": "./src/",
+    "baseUrl": ".",
     "paths": {
-      "@assets/*": [
-        "assets/*"
-      ],
       "@components/*": [
-        "components/*"
+        "src/components/*"
       ],
       "@constants/*": [
-        "constants/*"
+        "src/constants/*"
       ],
       "@db/*": [
-        "db/*"
+        "public/db/*"
       ],
       "@generated/*": [
-        "generated/*"
+        "src/generated/*"
       ],
       "@graphql/*": [
-        "graphql/*"
+        "src/graphql/*"
       ],
       "@hooks": [
-        "hooks"
+        "src/hooks"
       ],
       "@pages": [
-        "pages"
+        "src/pages"
       ],
       "@services": [
-        "services"
+        "src/services"
       ],
       "@stores/*": [
-        "stores/*"
+        "src/stores/*"
       ],
       "@styles/*": [
-        "styles/*"
+        "src/styles/*"
       ]
     }
   },

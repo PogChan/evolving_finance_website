@@ -1,0 +1,36 @@
+[
+  {
+    "id": "header",
+    "headerLogo": "/db/header/images/logo-header.png",
+    "headerNavMenu": [
+      {
+        "name": "Product & Features",
+        "href": "/product-and-features"
+      },
+      {
+        "name": "Solutions",
+        "href": "/solutions"
+      },
+      {
+        "name": "Contact Us",
+        "href": "/contact-us"
+      },
+      {
+        "name": "Resources",
+        "href": "/resources"
+      },
+      {
+        "name": "About Us",
+        "href": "/about-us"
+      }
+    ],
+    "loginBtn": {
+      "name": "Log In",
+      "href": "/"
+    },
+    "startHereBtn": {
+      "name": "Start Here",
+      "href": "/"
+    }
+  }
+]

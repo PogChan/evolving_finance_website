@@ -1,0 +1,33 @@
+@import '../breakpoints.scss';
+$header-height: var(--header-height);
+
+.container_main {
+  padding: 0 var(--gap-medium);
+
+  & > * {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  @include laptop {
+    padding: 0 var(--gap-large);
+  }
+
+  @include desktop {
+    padding: 0 var(--gap-very-large);
+  }
+}
+
+.container_top {
+  margin-top: -$header-height;
+  padding: calc(var(--gap-medium) + $header-height) 0 var(--gap-medium);
+
+  @include laptop {
+    padding: calc(var(--gap-large) + $header-height) 0 var(--gap-large);
+  }
+
+  @include desktop {
+    padding: calc(var(--gap-very-large) + $header-height) 0 var(--gap-very-large);
+  }
+}

@@ -1,0 +1,48 @@
+@import '@styles/breakpoints.scss';
+
+.burger_menu {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  padding-top: var(--header-height);
+  top: 0;
+  left: 0;
+  background-color: rgba(40, 42, 45, 0.25);
+  backdrop-filter: blur(10px);
+  transform: translate(-120%, 0);
+  opacity: 0;
+  transition: transform var(--transition), opacity var(--transition);
+
+  &.active {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  &__content {
+    overflow: auto;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-gap: 40px;
+    justify-items: center;
+    height: 100%;
+    padding: calc(var(--gap-very-large) * 2) var(--gap-medium);
+  }
+
+  &__log_in_btn {
+    display: block;
+  }
+
+  &__nav_link {
+    margin: auto 0;
+  }
+
+  @include laptop {
+    &__content {
+      grid-template-rows: 1fr;
+    }
+
+    &__log_in_btn {
+      display: none;
+    }
+  }
+}

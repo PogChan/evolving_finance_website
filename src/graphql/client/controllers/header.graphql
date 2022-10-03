@@ -1,0 +1,20 @@
+query GetHeader {
+  getHeader {
+    data {
+      id
+      headerLogo
+      headerNavMenu {
+        name
+        href
+      }
+      loginBtn {
+        name
+        href
+      }
+      startHereBtn {
+        name
+        href
+      }
+    }
+  }
+}

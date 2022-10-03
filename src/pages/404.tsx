@@ -11,7 +11,7 @@ const ErrorPage: NextPage = () => {
     // Interval
     const interval = setInterval(() => {
       return router.push('/')
-    }, 2500)
+    }, 2000)
     return () => clearInterval(interval)
   }, [])
 
@@ -35,7 +35,7 @@ const ErrorPage: NextPage = () => {
           height: '40px',
           width: '2px',
           margin: '-4px 10px 0',
-          backgroundColor: 'var(--font-color)',
+          backgroundColor: 'var(--font-color-white)',
         }}
       />
 

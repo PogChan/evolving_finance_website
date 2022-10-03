@@ -3,6 +3,11 @@ import '@styles/globals.scss'
 // Apollo provider
 import { ApolloProvider } from '@apollo/client'
 import { useApollo } from '@graphql/client/connect'
+// Context
+import { ContextProvider } from '@stores/context'
+// Components
+import { Seo } from '@components/elements'
+import { Layout } from '@components/templates'
 
 // App
 function MyApp({ Component, pageProps }: AppProps) {
@@ -11,9 +16,17 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   // Return
   return (
-    <ApolloProvider client={client}>
-      <Component {...pageProps} />
-    </ApolloProvider>
+    <>
+      <Seo />
+
+      <ApolloProvider client={client}>
+        <ContextProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ContextProvider>
+      </ApolloProvider>
+    </>
   )
 }
 

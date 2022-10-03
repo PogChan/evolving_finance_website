@@ -1,0 +1,32 @@
+:root {
+  // Width
+  --min-width: 375px;
+  --max-width: 1440px;
+  // Height
+  --header-height: 67px;
+  // Gap
+  --gap-very-large: 40px; //
+  --gap-large: 22px; //
+  --gap-medium: 15px; //
+  --gap-small: 5px; //
+  // Transition
+  --transition: 0.25s ease-in-out;
+  // Color font
+  --font-color-black: #000000;
+  --font-color-white: #ffffff;
+  --font-color-gold: #d1b062;
+  // Color body bg
+  --body-bg-color-black: #030303;
+  --body-bg-color-white: #ffffff;
+  --body-bg-color-gold: #d1b062;
+  --body-bg-color-header: #282a2d;
+  --body-bg-color-footer: #1a1c1e;
+  // Color btn
+  --btn-bg-color-primary: #030303;
+  --btn-bg-color-primary-hover: #ffffff;
+  --btn-bg-color-secondary: #d1b062;
+  --btn-bg-color-secondary-hover: #ba9c57;
+  // Color scroll
+  --scrollbar-thumb-bg-color: #d1b062;
+  --scrollbar-thumb-border-color: #030303;
+}
