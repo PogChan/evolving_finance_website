@@ -35,7 +35,7 @@ const Footer: FC = () => {
           <div className={styles.footer__social_links}>
             {data?.getFooter?.data[0]?.footerSocialIcons?.map((el, i) => (
               <a key={`${el.href} ${i}`} href={el.href} target={'_blank'} rel='noreferrer'>
-                {parse(el.icon)}
+                <span>{parse(el.icon)}</span>
               </a>
             ))}
           </div>

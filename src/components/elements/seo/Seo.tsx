@@ -18,7 +18,7 @@ interface ISeo {
 // Component
 const Seo: FC<ISeo> = ({
   title = 'Evolving finance',
-  locale = 'en-US',
+  locale = 'en',
   keywords = 'Trading Terminal, Traders, Forex',
   description = 'The Most Advanced Trading Terminal for all Traders',
   themeColor = '#030303',

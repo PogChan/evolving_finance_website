@@ -14,6 +14,11 @@ const nextConfig = {
   images: {
     domains: [''],
   },
+  // Locale
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en',
+  },
   // Icons config
   webpack(config) {
     config.module.rules.push({
