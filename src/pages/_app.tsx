@@ -1,5 +1,5 @@
-import '../styles/globals.scss'
 import type { AppProps } from 'next/app'
+import '@styles/globals.scss'
 // Apollo provider
 import { ApolloProvider } from '@apollo/client'
 import { useApollo } from '@graphql/client/connect'

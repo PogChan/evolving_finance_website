@@ -3,8 +3,6 @@ import { ApolloClient, createHttpLink, from, InMemoryCache, NormalizedCacheObjec
 import { onError } from '@apollo/client/link/error'
 import merge from 'deepmerge'
 import isEqual from 'lodash/isEqual'
-import { setContext } from '@apollo/client/link/context'
-import { clientLocalStore } from '@services'
 
 // Apollo state
 export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__'
@@ -19,28 +17,28 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (networkError) console.log(`[Network error]: ${networkError}`)
 })
 // BE link
-const httpLink = createHttpLink({
+const httpLinkBE = createHttpLink({
   uri: `${process.env.SITE_URL}/api/graphql`,
   credentials: 'same-origin',
 })
 // FE link
-const authLink = setContext((_, { headers }) => {
-  // Token
-  const token = clientLocalStore({ params: 'get', name: 'token' }) || null
-
-  // Return
-  return {
-    headers: {
-      ...headers,
-      authorization: token,
-    },
-  }
+const httpLinkFE = createHttpLink({
+  uri: `/api/graphql`,
+  credentials: 'same-origin',
 })
+// Create isomorph link
+function createIsomorphLink() {
+  if (typeof window === 'undefined') {
+    return httpLinkBE
+  } else {
+    return httpLinkFE
+  }
+}
 // Create apollo client
 function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    link: from([errorLink, typeof window === 'undefined' ? httpLink : authLink.concat(httpLink)]),
+    link: from([errorLink, createIsomorphLink()]),
     cache: new InMemoryCache(),
     ssrForceFetchDelay: 100,
     defaultOptions: {
@@ -87,6 +85,7 @@ export function addApolloState(
 ) {
   if (pageProps?.props) pageProps.props[APOLLO_STATE_PROP_NAME] = client.cache.extract()
 
+  // Return
   return pageProps
 }
 // Apollo hook

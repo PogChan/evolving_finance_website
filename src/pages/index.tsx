@@ -40,20 +40,20 @@ const Home: NextPage = () => {
 export default Home
 
 // Ssr
-// export async function getStaticProps() {
-//   const apolloClient = initializeApollo()
-//
-//   await apolloClient.query({
-//     query: GetHomePageDocument,
-//     variables: {
-//       input: {
-//         search: '',
-//       },
-//     },
-//   })
-//
-//   return addApolloState(apolloClient, {
-//     props: {},
-//     revalidate: 60,
-//   })
-// }
+export async function getStaticProps() {
+  const apolloClient = initializeApollo()
+
+  await apolloClient.query({
+    query: GetHomePageDocument,
+    variables: {
+      input: {
+        search: '',
+      },
+    },
+  })
+
+  return addApolloState(apolloClient, {
+    props: {},
+    revalidate: 1,
+  })
+}

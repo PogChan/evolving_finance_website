@@ -1,19 +1,10 @@
 import { ApolloServer } from 'apollo-server-micro'
 import { NextApiRequest, NextApiResponse, PageConfig } from 'next'
 import { corsMiddleware } from '@graphql/server/middleware'
-import { schema } from '@graphql/server/src'
+import { schema } from '@graphql/schema'
 
 // Apollo server
-const apolloServer = new ApolloServer({
-  schema,
-  context: ({ req }) => {
-    // Token
-    const token = req.headers.authorization || null
-
-    // Return
-    return { token }
-  },
-})
+const apolloServer = new ApolloServer({ schema })
 
 // Start apollo server
 const startApolloServer = apolloServer.start()
