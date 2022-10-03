@@ -23,7 +23,7 @@ const Header: FC = () => {
     >
       <div className={styles.header__content}>
         <div className={styles.header__header_logo}>
-          <LazyImage width={'228px'} height={'67px'} src={`${data?.getHeader?.data[0]?.headerLogo}` || ''} />
+          <LazyImage width={228} height={67} src={`${data?.getHeader?.data[0]?.headerLogo}` || ''} />
         </div>
 
         <div className={styles.header__nav_link}>
