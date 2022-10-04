@@ -75,25 +75,25 @@ const Home: NextPage = () => {
 export default Home
 
 // Ssr
-// export async function getStaticProps() {
-//   const apolloClient = initializeApollo()
-//   // Home page data
-//   await apolloClient.query({
-//     query: GetHomePageDocument,
-//     variables: {
-//       input: {
-//         search: '',
-//       },
-//     },
-//   })
-//   // Header data
-//   await apolloClient.query({ query: GetHeaderDocument })
-//   // Footer data
-//   await apolloClient.query({ query: GetFooterDocument })
-//
-//   // Return
-//   return addApolloState(apolloClient, {
-//     props: {},
-//     revalidate: 1,
-//   })
-// }
+export async function getStaticProps() {
+  const apolloClient = initializeApollo()
+  // Home page data
+  await apolloClient.query({
+    query: GetHomePageDocument,
+    variables: {
+      input: {
+        search: '',
+      },
+    },
+  })
+  // Header data
+  await apolloClient.query({ query: GetHeaderDocument })
+  // Footer data
+  await apolloClient.query({ query: GetFooterDocument })
+
+  // Return
+  return addApolloState(apolloClient, {
+    props: {},
+    revalidate: 1,
+  })
+}
