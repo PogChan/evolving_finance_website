@@ -1,6 +1,19 @@
 [
   {
     "id": "home-page",
-    "title": "Welcome! This is JSON file info."
+    "mainBlock": {
+      "subTitle": "Data-Driven Research",
+      "title": "The Most Advanced Trading <br/> Terminal for all Traders",
+      "underTitle": "Here at the Evolving Finance Institute, we pride ourselves on providing traders and investors alike with the most up-to-date information revolving around derivative markets and seasonality trends.",
+      "primaryBtn": {
+        "href": "/",
+        "name": "Start a Free Trial"
+      },
+      "secondaryBtn": {
+        "href": "/",
+        "name": "Learn More"
+      },
+      "bgImg": "/db/home-page/images/main-block-img.png"
+    }
   }
 ]

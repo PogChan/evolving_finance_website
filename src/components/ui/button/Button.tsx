@@ -13,6 +13,7 @@ interface IButton {
   loading?: boolean
   disable?: boolean
   style?: CSSProperties
+  className?: string
 }
 
 // Component
@@ -26,6 +27,7 @@ const Button: FC<IButton> = ({
   loading,
   disable,
   style,
+  className,
 }) => {
   // Return
   return (
@@ -38,7 +40,8 @@ const Button: FC<IButton> = ({
       ${variant === 'svg-secondary' ? styles.svg_secondary : ''}
       ${disable ? styles.disable : ''}
       ${loading ? styles.loading : ''}
-      ${svg ? styles.svg : ''}`}
+      ${svg ? styles.svg : ''}
+      ${className ? className : ''}`}
       onClick={onClick}
       disabled={disable}
       style={style}

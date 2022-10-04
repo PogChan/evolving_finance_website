@@ -31,24 +31,31 @@ const BurgerMenu: FC<IBurgerMenu> = ({ active = false, setActive }) => {
 
   // Return
   return (
-    <div className={`${styles.burger_menu} ${active ? styles.active : ''}`} onClick={handleSetActive}>
+    <div
+      className={`${styles.burger_menu} ${active ? styles.active : ''}`}
+      onClick={handleSetActive}
+    >
       <div className={styles.burger_menu__content}>
-        <div
-          className={styles.burger_menu__log_in_btn}
-          onClick={() => push(data?.getHeader?.data[0]?.loginBtn.href || '')}
-        >
-          <Button>{data?.getHeader?.data[0]?.loginBtn.name}</Button>
-        </div>
-
         <div className={styles.burger_menu__nav_link}>
           <NavLink variant={'column'} navLinks={data?.getHeader?.data[0]?.headerNavMenu} />
         </div>
 
         <div
-          className={styles.burger_menu__log_in_btn}
+          className={styles.burger_menu__link_btn}
           onClick={() => push(data?.getHeader?.data[0]?.loginBtn.href || '')}
         >
-          <Button variant={'secondary'}>{data?.getHeader?.data[0]?.startHereBtn.name}</Button>
+          <Button className={styles.burger_menu__btn}>
+            {data?.getHeader?.data[0]?.loginBtn.name}
+          </Button>
+        </div>
+
+        <div
+          className={styles.burger_menu__link_btn}
+          onClick={() => push(data?.getHeader?.data[0]?.loginBtn.href || '')}
+        >
+          <Button className={styles.burger_menu__btn} variant={'secondary'}>
+            {data?.getHeader?.data[0]?.startHereBtn.name}
+          </Button>
         </div>
       </div>
     </div>

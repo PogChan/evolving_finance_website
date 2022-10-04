@@ -59,7 +59,7 @@ export type Header = {
 export type HomePage = {
   __typename?: 'HomePage'
   id: Scalars['String']
-  title: Scalars['String']
+  mainBlock: MainBlock
 }
 
 export type InputHomePage = {
@@ -78,6 +78,16 @@ export type Links = {
   name: Scalars['String']
 }
 
+export type MainBlock = {
+  __typename?: 'MainBlock'
+  bgImg: Scalars['String']
+  primaryBtn: BtnLink
+  secondaryBtn: BtnLink
+  subTitle: Scalars['String']
+  title: Scalars['String']
+  underTitle: Scalars['String']
+}
+
 export type Query = {
   __typename?: 'Query'
   getFooter?: Maybe<DataFooter>
@@ -93,6 +103,12 @@ export type SocialLinks = {
   __typename?: 'SocialLinks'
   href: Scalars['String']
   icon: Scalars['String']
+}
+
+export type BtnLink = {
+  __typename?: 'btnLink'
+  href: Scalars['String']
+  name: Scalars['String']
 }
 
 export type GetFooterQueryVariables = Exact<{ [key: string]: never }>
@@ -141,7 +157,19 @@ export type GetHomePageQuery = {
   __typename?: 'Query'
   getHomePage?: {
     __typename?: 'Data'
-    data: Array<{ __typename?: 'HomePage'; id: string; title: string } | null>
+    data: Array<{
+      __typename?: 'HomePage'
+      id: string
+      mainBlock: {
+        __typename?: 'MainBlock'
+        subTitle: string
+        title: string
+        underTitle: string
+        bgImg: string
+        primaryBtn: { __typename?: 'btnLink'; href: string; name: string }
+        secondaryBtn: { __typename?: 'btnLink'; href: string; name: string }
+      }
+    } | null>
   } | null
 }
 
@@ -175,7 +203,13 @@ export type SubscriptionResolveFn<TResult, TParent, TContext, TArgs> = (
   info: GraphQLResolveInfo,
 ) => TResult | Promise<TResult>
 
-export interface SubscriptionSubscriberObject<TResult, TKey extends string, TParent, TContext, TArgs> {
+export interface SubscriptionSubscriberObject<
+  TResult,
+  TKey extends string,
+  TParent,
+  TContext,
+  TArgs,
+> {
   subscribe: SubscriptionSubscribeFn<{ [key in TKey]: TResult }, TParent, TContext, TArgs>
   resolve?: SubscriptionResolveFn<TResult, { [key in TKey]: TResult }, TContext, TArgs>
 }
@@ -189,7 +223,13 @@ export type SubscriptionObject<TResult, TKey extends string, TParent, TContext, 
   | SubscriptionSubscriberObject<TResult, TKey, TParent, TContext, TArgs>
   | SubscriptionResolverObject<TResult, TParent, TContext, TArgs>
 
-export type SubscriptionResolver<TResult, TKey extends string, TParent = {}, TContext = {}, TArgs = {}> =
+export type SubscriptionResolver<
+  TResult,
+  TKey extends string,
+  TParent = {},
+  TContext = {},
+  TArgs = {},
+> =
   | ((...args: any[]) => SubscriptionObject<TResult, TKey, TParent, TContext, TArgs>)
   | SubscriptionObject<TResult, TKey, TParent, TContext, TArgs>
 
@@ -228,9 +268,11 @@ export type ResolversTypes = {
   InputHomePage: InputHomePage
   Link: ResolverTypeWrapper<Link>
   Links: ResolverTypeWrapper<Links>
+  MainBlock: ResolverTypeWrapper<MainBlock>
   Query: ResolverTypeWrapper<{}>
   SocialLinks: ResolverTypeWrapper<SocialLinks>
   String: ResolverTypeWrapper<Scalars['String']>
+  btnLink: ResolverTypeWrapper<BtnLink>
 }
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -246,9 +288,11 @@ export type ResolversParentTypes = {
   InputHomePage: InputHomePage
   Link: Link
   Links: Links
+  MainBlock: MainBlock
   Query: {}
   SocialLinks: SocialLinks
   String: Scalars['String']
+  btnLink: BtnLink
 }
 
 export type DataResolvers<
@@ -313,7 +357,7 @@ export type HomePageResolvers<
   ParentType extends ResolversParentTypes['HomePage'] = ResolversParentTypes['HomePage'],
 > = {
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>
-  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  mainBlock?: Resolver<ResolversTypes['MainBlock'], ParentType, ContextType>
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
 }
 
@@ -332,6 +376,19 @@ export type LinksResolvers<
 > = {
   href?: Resolver<ResolversTypes['String'], ParentType, ContextType>
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
+}
+
+export type MainBlockResolvers<
+  ContextType = any,
+  ParentType extends ResolversParentTypes['MainBlock'] = ResolversParentTypes['MainBlock'],
+> = {
+  bgImg?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  primaryBtn?: Resolver<ResolversTypes['btnLink'], ParentType, ContextType>
+  secondaryBtn?: Resolver<ResolversTypes['btnLink'], ParentType, ContextType>
+  subTitle?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  underTitle?: Resolver<ResolversTypes['String'], ParentType, ContextType>
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
 }
 
@@ -358,6 +415,15 @@ export type SocialLinksResolvers<
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
 }
 
+export type BtnLinkResolvers<
+  ContextType = any,
+  ParentType extends ResolversParentTypes['btnLink'] = ResolversParentTypes['btnLink'],
+> = {
+  href?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
+}
+
 export type Resolvers<ContextType = any> = {
   Data?: DataResolvers<ContextType>
   DataFooter?: DataFooterResolvers<ContextType>
@@ -368,8 +434,10 @@ export type Resolvers<ContextType = any> = {
   HomePage?: HomePageResolvers<ContextType>
   Link?: LinkResolvers<ContextType>
   Links?: LinksResolvers<ContextType>
+  MainBlock?: MainBlockResolvers<ContextType>
   Query?: QueryResolvers<ContextType>
   SocialLinks?: SocialLinksResolvers<ContextType>
+  btnLink?: BtnLinkResolvers<ContextType>
 }
 
 export const GetFooterDocument = gql`
@@ -413,7 +481,9 @@ export const GetFooterDocument = gql`
  *   },
  * });
  */
-export function useGetFooterQuery(baseOptions?: Apollo.QueryHookOptions<GetFooterQuery, GetFooterQueryVariables>) {
+export function useGetFooterQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetFooterQuery, GetFooterQueryVariables>,
+) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useQuery<GetFooterQuery, GetFooterQueryVariables>(GetFooterDocument, options)
 }
@@ -464,7 +534,9 @@ export const GetHeaderDocument = gql`
  *   },
  * });
  */
-export function useGetHeaderQuery(baseOptions?: Apollo.QueryHookOptions<GetHeaderQuery, GetHeaderQueryVariables>) {
+export function useGetHeaderQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetHeaderQuery, GetHeaderQueryVariables>,
+) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useQuery<GetHeaderQuery, GetHeaderQueryVariables>(GetHeaderDocument, options)
 }
@@ -482,7 +554,20 @@ export const GetHomePageDocument = gql`
     getHomePage(input: $input) {
       data {
         id
-        title
+        mainBlock {
+          subTitle
+          title
+          underTitle
+          primaryBtn {
+            href
+            name
+          }
+          secondaryBtn {
+            href
+            name
+          }
+          bgImg
+        }
       }
     }
   }
@@ -504,7 +589,9 @@ export const GetHomePageDocument = gql`
  *   },
  * });
  */
-export function useGetHomePageQuery(baseOptions: Apollo.QueryHookOptions<GetHomePageQuery, GetHomePageQueryVariables>) {
+export function useGetHomePageQuery(
+  baseOptions: Apollo.QueryHookOptions<GetHomePageQuery, GetHomePageQueryVariables>,
+) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useQuery<GetHomePageQuery, GetHomePageQueryVariables>(GetHomePageDocument, options)
 }
@@ -512,7 +599,10 @@ export function useGetHomePageLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<GetHomePageQuery, GetHomePageQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<GetHomePageQuery, GetHomePageQueryVariables>(GetHomePageDocument, options)
+  return Apollo.useLazyQuery<GetHomePageQuery, GetHomePageQueryVariables>(
+    GetHomePageDocument,
+    options,
+  )
 }
 export type GetHomePageQueryHookResult = ReturnType<typeof useGetHomePageQuery>
 export type GetHomePageLazyQueryHookResult = ReturnType<typeof useGetHomePageLazyQuery>

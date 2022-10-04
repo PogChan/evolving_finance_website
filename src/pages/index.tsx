@@ -1,33 +1,73 @@
 // Libs
 import type { NextPage } from 'next'
+import styles from './index.module.scss'
 import container from '@styles/modules/container.module.scss'
+import text from '@styles/modules/text.module.scss'
 import { addApolloState, initializeApollo } from '@graphql/client/connect'
-import { GetFooterDocument, GetHeaderDocument, GetHomePageDocument, useGetHomePageQuery } from '@generated/graphql'
-import { NetworkStatus } from '@apollo/client'
+import {
+  GetFooterDocument,
+  GetHeaderDocument,
+  GetHomePageDocument,
+  useGetHomePageQuery,
+} from '@generated/graphql'
+import parse from 'html-react-parser'
+import { Button } from '@components/ui'
+import { useRouter } from 'next/router'
+import { useMemo } from 'react'
 
 // Page
 const Home: NextPage = () => {
+  // Router
+  const { push } = useRouter()
   // Get home page
-  const { data, networkStatus } = useGetHomePageQuery({
+  const { data: dataServer } = useGetHomePageQuery({
     variables: {
       input: {
         search: '',
       },
     },
   })
+  // Data
+  const data = useMemo(() => dataServer?.getHomePage?.data[0], [dataServer])
 
   // Return
   return (
     <>
-      <div className={`${container.container_main}`}>
-        <div className={container.container_top}>
-          {networkStatus !== NetworkStatus.loading && data ? (
-            <h1>{data.getHomePage?.data[0]?.title}</h1>
-          ) : (
-            <h3>{'Loading...'}</h3>
-          )}
+      <div className={`${container.container_main} ${styles.home_page}`}>
+        <div
+          className={`${container.container_top} ${container.container_100vh} ${styles.home_page__main_block}`}
+        >
+          <div className={styles.home_page__main_block__description}>
+            <h5
+              className={`${text.h_5} ${text.color_gold} ${text.uppercase} ${text.font_montserrat}`}
+            >
+              {parse(data?.mainBlock.subTitle || '')}
+            </h5>
+
+            <h2 className={`${text.h_2}`}>{parse(data?.mainBlock.title || '')}</h2>
+
+            <p className={`${text.p_m} ${text.font_montserrat}`}>
+              {parse(data?.mainBlock.underTitle || '')}
+            </p>
+
+            <div className={styles.home_page__main_block__btns}>
+              <Button
+                onClick={() => push(data?.mainBlock.primaryBtn.href || '')}
+                variant={'secondary'}
+                size={'large'}
+              >
+                {data?.mainBlock.primaryBtn.name}
+              </Button>
+
+              <Button onClick={() => push(data?.mainBlock.secondaryBtn.href || '')} size={'large'}>
+                {data?.mainBlock.secondaryBtn.name}
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
+
+      <div className={`${container.container_main} ${styles.home_page}`}></div>
     </>
   )
 }

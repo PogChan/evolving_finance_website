@@ -30,7 +30,9 @@ const Footer: FC = () => {
         ))}
 
         <div>
-          <div className={`${styles.footer__title}`}>{data?.getFooter?.data[0]?.footerSocialTitle}</div>
+          <div className={`${styles.footer__title}`}>
+            {data?.getFooter?.data[0]?.footerSocialTitle}
+          </div>
 
           <div className={styles.footer__social_links}>
             {data?.getFooter?.data[0]?.footerSocialIcons?.map((el, i) => (

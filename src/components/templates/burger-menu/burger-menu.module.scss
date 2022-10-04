@@ -7,8 +7,7 @@
   padding-top: var(--header-height);
   top: 0;
   left: 0;
-  background-color: rgba(40, 42, 45, 0.25);
-  backdrop-filter: blur(10px);
+  background-color: var(--body-bg-color-black);
   transform: translate(-120%, 0);
   opacity: 0;
   transition: transform var(--transition), opacity var(--transition);
@@ -21,19 +20,33 @@
   &__content {
     overflow: auto;
     display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-gap: 40px;
+    grid-template-rows: 1fr auto auto;
+    grid-gap: 20px;
     justify-items: center;
     height: 100%;
-    padding: calc(var(--gap-very-large) * 2) var(--gap-medium);
+    padding: var(--gap-very-large) var(--gap-medium) calc(var(--gap-very-large) * 2);
   }
 
-  &__log_in_btn {
-    display: block;
+  &__link_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__btn {
+    width: 100%;
+    max-width: unset;
   }
 
   &__nav_link {
     margin: auto 0;
+  }
+
+  @include tablet {
+    &__btn {
+      max-width: 200px;
+    }
   }
 
   @include laptop {

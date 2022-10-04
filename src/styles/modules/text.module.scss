@@ -64,3 +64,15 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.color_gold {
+  color: var(--font-color-gold);
+}
+
+.font_montserrat {
+  font-family: Montserrat, sans-serif;
+}

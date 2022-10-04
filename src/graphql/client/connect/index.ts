@@ -1,5 +1,11 @@
 import { useMemo } from 'react'
-import { ApolloClient, createHttpLink, from, InMemoryCache, NormalizedCacheObject } from '@apollo/client'
+import {
+  ApolloClient,
+  createHttpLink,
+  from,
+  InMemoryCache,
+  NormalizedCacheObject,
+} from '@apollo/client'
 import { onError } from '@apollo/client/link/error'
 import merge from 'deepmerge'
 import isEqual from 'lodash/isEqual'

@@ -10,11 +10,11 @@ $header-height: var(--header-height);
     margin: 0 auto;
   }
 
-  @include laptop {
+  @include tablet {
     padding: 0 var(--gap-large);
   }
 
-  @include desktop {
+  @include laptop {
     padding: 0 var(--gap-very-large);
   }
 }
@@ -30,4 +30,8 @@ $header-height: var(--header-height);
   @include desktop {
     padding: calc(var(--gap-very-large) + $header-height) 0 var(--gap-very-large);
   }
+}
+
+.container_100vh {
+  min-height: 100vh;
 }

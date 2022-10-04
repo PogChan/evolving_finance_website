@@ -2,7 +2,20 @@ query GetHomePage($input: InputHomePage!) {
   getHomePage(input: $input) {
     data {
       id
-      title
+      mainBlock {
+        subTitle
+        title
+        underTitle
+        primaryBtn {
+          href
+          name
+        }
+        secondaryBtn {
+          href
+          name
+        }
+        bgImg
+      }
     }
   }
 }

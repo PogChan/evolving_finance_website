@@ -1,5 +1,13 @@
 // Libs
-import React, { createContext, useContext, useState, ReactNode, FC, SetStateAction, Dispatch } from 'react'
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  FC,
+  SetStateAction,
+  Dispatch,
+} from 'react'
 import { initialState } from './initial-state'
 
 // Interface

@@ -8,7 +8,7 @@
   max-width: 100%;
   height: 40px;
   padding: 0 32px;
-  background-color: var(--btn-bg-color-primary);
+  background-color: transparent;
   border-radius: 40px;
   border: 1px solid var(--btn-bg-color-primary-hover);
   overflow: hidden;
@@ -19,7 +19,6 @@
   font-size: 18px;
   color: var(--body-bg-color-white);
   opacity: 1;
-  transform: scale(1);
   transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, opacity 0.25s ease-in-out,
     border-color 0.25s ease-in-out;
 
@@ -32,7 +31,7 @@
   }
 
   &:active {
-    background-color: var(--btn-bg-color-primary);
+    background-color: transparent;
     color: var(--font-color-white);
   }
 
