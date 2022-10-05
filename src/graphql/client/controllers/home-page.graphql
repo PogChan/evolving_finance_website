@@ -16,6 +16,24 @@ query GetHomePage($input: InputHomePage!) {
         }
         bgImg
       }
+      centerBlockA {
+        title
+        underTitle
+        infoList {
+          icon
+          title
+          text
+        }
+      }
+      centerBlockB
+      blockBottom {
+        title
+        listClients {
+          icon
+          text
+          title
+        }
+      }
     }
   }
 }

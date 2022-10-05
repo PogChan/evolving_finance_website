@@ -1,0 +1,31 @@
+.client_card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 44.5px;
+  padding: 62px 23px 21px;
+  background-color: var(--body-bg-color-white);
+  border-radius: 10px;
+  font-family: Montserrat, sans-serif;
+  color: var(--font-color-black);
+
+  &__photo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -44.5px);
+  }
+
+  &__text {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: 21px;
+    font-weight: 700;
+    margin: auto auto 0;
+  }
+}

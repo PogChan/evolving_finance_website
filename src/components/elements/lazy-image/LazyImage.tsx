@@ -26,7 +26,7 @@ const LazyImage: FC<ILazyImage> = ({
   objectFit = 'cover',
   layout = 'intrinsic',
   loading = 'lazy',
-  quality = '75',
+  quality = 100,
   placeholder = 'blur',
   className,
   style,

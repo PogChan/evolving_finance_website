@@ -53,4 +53,144 @@
       }
     }
   }
+
+  &__center_block_a {
+    position: relative;
+    background-color: var(--body-bg-color-white);
+    color: var(--font-color-black);
+
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    &__description {
+      display: grid;
+      grid-gap: 15px;
+      max-width: 520px;
+      margin: 70px 0 40px;
+    }
+
+    &__info_list {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(1, auto);
+      grid-gap: 14px;
+      height: 100%;
+      margin: 0 auto;
+      padding-bottom: 40px;
+      left: unset;
+      transform: translate(0, 0);
+    }
+
+    &__list_item {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      padding: 105px 20px 20px;
+      background-color: var(--font-color-black);
+      color: var(--font-color-white);
+    }
+
+    &__list_svg {
+      width: 60px;
+    }
+
+    @include tablet {
+      &__info_list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @include laptop {
+      &__content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      &__description {
+        margin: 136px 0 94px;
+      }
+
+      &__info_list {
+        position: absolute;
+        grid-template-columns: repeat(2, auto);
+        margin: auto auto auto 0;
+        padding-bottom: unset;
+        left: calc(50% + 15px);
+        transform: translate(0, 100px);
+      }
+
+      &__list_item {
+        width: 240px;
+      }
+
+      &__list_svg {
+        width: 60px;
+      }
+    }
+
+    @include desktop {
+      &__info_list {
+        left: 50%;
+      }
+
+      &__list_item {
+        width: 252px;
+      }
+    }
+  }
+
+  &__center_block_b {
+    background: linear-gradient(180deg, #232528 0%, #000000 100%);
+
+    & > * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__content {
+      margin: 25px auto 55px;
+    }
+
+    @include laptop {
+      & > * {
+        justify-content: unset;
+        align-items: unset;
+      }
+
+      &__content {
+        margin: 49px auto 105px 0;
+      }
+    }
+  }
+
+  &__center_block_c {
+  }
+
+  &__bottom_block {
+    display: flex;
+    flex-direction: column;
+    gap: 128px;
+    padding: 129px 0 250px;
+
+    &__title {
+      position: relative;
+      display: flex;
+      margin: 0 auto;
+    }
+
+    &__line {
+      position: absolute;
+      right: 0;
+      bottom: -15px;
+    }
+
+    &__list_clients {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(257px, 100%), 1fr));
+      grid-gap: 27px;
+    }
+  }
 }

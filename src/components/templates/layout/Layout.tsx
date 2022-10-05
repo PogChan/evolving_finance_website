@@ -1,5 +1,5 @@
 // Libs
-import React, { FC, memo, ReactNode } from 'react'
+import React, { FC, memo, ReactNode, useEffect } from 'react'
 import styles from './layout.module.scss'
 import { BurgerMenu, Footer, Header } from '@components/templates'
 import { useRouter } from 'next/router'
@@ -16,6 +16,10 @@ const Layout: FC<ILayout> = ({ children }) => {
   const { burgerMenu, setBurgerMenu } = useAppContext()
   // Router
   const { route } = useRouter()
+  // Watch from scroll
+  useEffect(() => {
+    typeof window !== 'undefined' && window.scroll({ top: 0 })
+  }, [route])
 
   // Return
   return (

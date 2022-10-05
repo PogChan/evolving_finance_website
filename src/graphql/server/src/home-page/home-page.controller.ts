@@ -6,6 +6,12 @@ export const homePageTypeDefs = gql`
     href: String!
     name: String!
   }
+  #  Info list
+  type InfoList {
+    icon: String!
+    title: String!
+    text: String!
+  }
   #  Main block
   type MainBlock {
     subTitle: String!
@@ -15,10 +21,24 @@ export const homePageTypeDefs = gql`
     secondaryBtn: btnLink!
     bgImg: String!
   }
+  #  Center block a
+  type CenterBlockA {
+    title: String!
+    underTitle: String!
+    infoList: [InfoList!]!
+  }
+  #  Bottom block
+  type BottomBlock {
+    title: String!
+    listClients: [InfoList!]!
+  }
   #  Home page
   type HomePage {
     id: String!
     mainBlock: MainBlock!
+    centerBlockA: CenterBlockA!
+    centerBlockB: String!
+    blockBottom: BottomBlock!
   }
 
   type Data {
