@@ -85,7 +85,7 @@ const Home: NextPage = () => {
               <div key={`${el.title} ${i}`} className={styles.home_page__center_block_a__list_item}>
                 <div className={styles.home_page__center_block_a__list_svg}>{parse(el.icon)}</div>
 
-                <h4 className={`${text.h_4} ${text.font_montserrat}`}>{parse(el.title)}</h4>
+                <div className={`${text.h_4} ${text.font_montserrat}`}>{parse(el.title)}</div>
 
                 <p className={`${text.p_m} ${text.font_montserrat}`}>{parse(el.text)}</p>
               </div>
