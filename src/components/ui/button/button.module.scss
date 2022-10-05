@@ -19,14 +19,21 @@
   font-size: 18px;
   color: var(--body-bg-color-white);
   opacity: 1;
+  transform: scale(1);
   transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, opacity 0.25s ease-in-out,
-    border-color 0.25s ease-in-out;
+    border-color 0.25s ease-in-out, transform 0.25s ease-in-out;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       background-color: var(--btn-bg-color-primary-hover);
       border-color: var(--btn-bg-color-primary-hover);
       color: var(--font-color-black);
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      transform: scale(0.95);
     }
   }
 
