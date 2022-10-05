@@ -179,18 +179,27 @@
       position: relative;
       display: flex;
       margin: 0 auto;
+      text-align: center;
     }
 
     &__line {
       position: absolute;
-      right: 0;
+      right: 50%;
       bottom: -15px;
+      transform: translate(50%, 0);
     }
 
     &__list_clients {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(min(257px, 100%), 1fr));
       grid-gap: 27px;
+    }
+
+    @include laptop {
+      &__line {
+        right: 0;
+        transform: translate(0, 0);
+      }
     }
   }
 }
