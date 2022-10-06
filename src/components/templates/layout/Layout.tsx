@@ -1,8 +1,8 @@
 // Libs
-import React, { FC, memo, ReactNode, useEffect } from 'react'
+import React, { FC, memo, ReactNode } from 'react'
 import styles from './layout.module.scss'
 import { BurgerMenu, Footer, Header } from '@components/templates'
-import { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
 import { useAppContext } from '@stores/context'
 import { ButtonScrollToTop } from '@components/ui'
 
@@ -18,9 +18,7 @@ const Layout: FC<ILayout> = ({ children }) => {
   // Router
   const { route } = useRouter()
   // Watch from scroll
-  useEffect(() => {
-    window.scrollTo({ top: 0 })
-  }, [route])
+  Router.events.on('routeChangeStart', () => window.scrollTo({ top: 0 }))
 
   // Return
   return (
