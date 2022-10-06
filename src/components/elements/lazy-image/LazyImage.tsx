@@ -66,6 +66,7 @@ const LazyImage: FC<ILazyImage> = ({
       className={className}
       style={style}
       onClick={onClick}
+      lazyBoundary={'200px'}
     />
   )
 }

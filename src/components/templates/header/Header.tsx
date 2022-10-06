@@ -2,7 +2,6 @@
 import React, { FC, memo } from 'react'
 import styles from './header.module.scss'
 import container from '@styles/modules/container.module.scss'
-import { LazyImage } from '@components/elements'
 import { useGetHeaderQuery } from '@generated/graphql'
 import { Button, ButtonBurgerMenu } from '@components/ui'
 import { NavLink } from '@components/templates'
@@ -22,13 +21,10 @@ const Header: FC = () => {
       onClick={() => burgerMenu && setBurgerMenu(false)}
     >
       <div className={styles.header__content}>
-        <div className={styles.header__header_logo}>
-          <LazyImage
-            width={228}
-            height={67}
-            src={`${data?.getHeader?.data[0]?.headerLogo}` || ''}
-          />
-        </div>
+        <div
+          className={styles.header__header_logo}
+          style={{ backgroundImage: `url(${data?.getHeader?.data[0]?.headerLogo})` }}
+        />
 
         <div className={styles.header__nav_link}>
           <NavLink navLinks={data?.getHeader?.data[0]?.headerNavMenu} />
