@@ -19,8 +19,8 @@ const Layout: FC<ILayout> = ({ children }) => {
   const { route } = useRouter()
   // Watch from scroll
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo({ top: 0 })
+  }, [route])
 
   // Return
   return (
