@@ -2,7 +2,7 @@
 import React, { FC, memo, ReactNode } from 'react'
 import styles from './layout.module.scss'
 import { BurgerMenu, Footer, Header } from '@components/templates'
-import Router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import { useAppContext } from '@stores/context'
 import { ButtonScrollToTop } from '@components/ui'
 
@@ -17,8 +17,6 @@ const Layout: FC<ILayout> = ({ children }) => {
   const { burgerMenu, setBurgerMenu } = useAppContext()
   // Router
   const { route } = useRouter()
-  // Watch from scroll
-  Router.ready(() => window.scrollTo({ top: 0 }))
 
   // Return
   return (
