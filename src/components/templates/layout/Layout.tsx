@@ -18,7 +18,7 @@ const Layout: FC<ILayout> = ({ children }) => {
   // Router
   const { route } = useRouter()
   // Watch from scroll
-  Router.events.on('routeChangeStart', () => window.scrollTo({ top: 0 }))
+  Router.ready(() => window.scrollTo({ top: 0 }))
 
   // Return
   return (
