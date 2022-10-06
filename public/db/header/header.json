@@ -1,7 +1,7 @@
 [
   {
     "id": "header",
-    "headerLogo": "/db/header/images/logo-header.png",
+    "headerLogo": "/db/header/images/logo-header.webp",
     "headerNavMenu": [
       {
         "name": "Product & Features",
