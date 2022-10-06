@@ -1,5 +1,6 @@
 export { default as BurgerMenu } from './burger-menu/BurgerMenu'
 export { default as ClientCard } from './cards/client-card/ClientCard'
+export { default as InfoCard } from './cards/info-card/InfoCard'
 export { default as Footer } from './footer/Footer'
 export { default as Header } from './header/Header'
 export { default as Layout } from './layout/Layout'

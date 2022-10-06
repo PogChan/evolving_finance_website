@@ -56,7 +56,7 @@
 
   &__bottom_links {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding-bottom: 68px;
     font-weight: 600;
     font-size: 12px;
@@ -65,7 +65,8 @@
     & > * {
       cursor: pointer;
       pointer-events: none;
-      margin-right: 17px;
+      margin-right: unset;
+      margin-bottom: 10px;
       color: #bdbdbd;
       transition: color var(--transition);
 
@@ -76,6 +77,15 @@
       &.active {
         pointer-events: auto;
         text-decoration: underline;
+      }
+    }
+
+    @include tablet {
+      flex-direction: row;
+
+      & > * {
+        margin-right: 17px;
+        margin-bottom: unset;
       }
     }
   }

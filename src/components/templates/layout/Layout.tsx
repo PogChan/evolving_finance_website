@@ -4,6 +4,7 @@ import styles from './layout.module.scss'
 import { BurgerMenu, Footer, Header } from '@components/templates'
 import { useRouter } from 'next/router'
 import { useAppContext } from '@stores/context'
+import { ButtonScrollToTop } from '@components/ui'
 
 // Interface
 interface ILayout {
@@ -18,8 +19,8 @@ const Layout: FC<ILayout> = ({ children }) => {
   const { route } = useRouter()
   // Watch from scroll
   useEffect(() => {
-    typeof window !== 'undefined' && window.scroll({ top: 0 })
-  }, [route])
+    window.scrollTo(0, 0)
+  }, [])
 
   // Return
   return (
@@ -31,6 +32,8 @@ const Layout: FC<ILayout> = ({ children }) => {
       {route !== '/404' && <Footer />}
 
       <BurgerMenu active={burgerMenu} setActive={(e) => setBurgerMenu(e)} />
+
+      <ButtonScrollToTop />
     </>
   )
 }

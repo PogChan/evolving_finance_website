@@ -83,20 +83,6 @@
       transform: translate(0, 0);
     }
 
-    &__list_item {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 100%;
-      padding: 105px 20px 20px;
-      background-color: var(--font-color-black);
-      color: var(--font-color-white);
-    }
-
-    &__list_svg {
-      width: 60px;
-    }
-
     @include tablet {
       &__info_list {
         grid-template-columns: repeat(2, 1fr);
@@ -114,29 +100,18 @@
 
       &__info_list {
         position: absolute;
-        grid-template-columns: repeat(2, auto);
+        grid-template-columns: repeat(2, 240px);
         margin: auto auto auto 0;
         padding-bottom: unset;
         left: calc(50% + 15px);
         transform: translate(0, 100px);
       }
-
-      &__list_item {
-        width: 240px;
-      }
-
-      &__list_svg {
-        width: 60px;
-      }
     }
 
     @include desktop {
       &__info_list {
+        grid-template-columns: repeat(2, 252px);
         left: 50%;
-      }
-
-      &__list_item {
-        width: 252px;
       }
     }
   }
@@ -151,7 +126,7 @@
     }
 
     &__content {
-      margin: 25px auto 55px;
+      margin: 45px auto 55px;
     }
 
     @include laptop {
@@ -173,7 +148,7 @@
     display: flex;
     flex-direction: column;
     gap: 128px;
-    padding: 129px 0 250px;
+    padding: 100px 0 200px;
 
     &__title {
       position: relative;
@@ -196,6 +171,8 @@
     }
 
     @include laptop {
+      padding: 129px 0 250px;
+
       &__line {
         right: 0;
         transform: translate(0, 0);

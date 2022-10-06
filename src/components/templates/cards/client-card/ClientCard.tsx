@@ -6,8 +6,8 @@ import { LazyImage } from '@components/elements'
 // Interface
 interface IClientCard {
   icon: string
-  text: string
-  title: string
+  title: string | JSX.Element | JSX.Element[]
+  text: string | JSX.Element | JSX.Element[]
 }
 
 // Component

@@ -1,0 +1,41 @@
+.button_scroll_tot_top {
+  position: fixed;
+  cursor: pointer;
+  overflow: hidden;
+  width: 45px;
+  height: 45px;
+  bottom: 20px;
+  left: calc(100% - 40px);
+  background-color: #000000;
+  border: 2px solid var(--body-bg-color-gold);
+  border-radius: 50%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.75);
+  transform: translate(-100%, calc(120% + 20px));
+  transition: transform 0.25s ease-in-out;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 50%;
+    top: 50%;
+    border: 2px solid var(--body-bg-color-gold);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    transform: translate(-50%, -25%) rotate(45deg);
+  }
+
+  &.active {
+    transform: translate(-100%, 0);
+  }
+
+  &.mobile_type {
+    left: 20px;
+    transform: translate(0, calc(120% + 20px));
+
+    &.active {
+      transform: translate(0, 0);
+    }
+  }
+}

@@ -16,7 +16,7 @@ import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 import { LazyImage } from '@components/elements'
 import { LineIco } from '@constants/icons'
-import { ClientCard } from '@components/templates'
+import { ClientCard, InfoCard } from '@components/templates'
 
 // Page
 const Home: NextPage = () => {
@@ -82,13 +82,12 @@ const Home: NextPage = () => {
 
           <div className={styles.home_page__center_block_a__info_list}>
             {data?.centerBlockA.infoList.map((el, i) => (
-              <div key={`${el.title} ${i}`} className={styles.home_page__center_block_a__list_item}>
-                <div className={styles.home_page__center_block_a__list_svg}>{parse(el.icon)}</div>
-
-                <div className={`${text.h_4} ${text.font_montserrat}`}>{parse(el.title)}</div>
-
-                <p className={`${text.p_m} ${text.font_montserrat}`}>{parse(el.text)}</p>
-              </div>
+              <InfoCard
+                key={`${el.title} ${i}`}
+                icon={parse(el.icon)}
+                title={parse(el.title)}
+                text={parse(el.text)}
+              />
             ))}
           </div>
         </div>
@@ -116,7 +115,12 @@ const Home: NextPage = () => {
 
           <div className={styles.home_page__bottom_block__list_clients}>
             {data?.blockBottom.listClients.map((el, i) => (
-              <ClientCard icon={el.icon} text={el.text} title={el.title} key={`${el.title} ${i}`} />
+              <ClientCard
+                icon={el.icon}
+                title={parse(el.title)}
+                text={parse(el.text)}
+                key={`${el.title} ${i}`}
+              />
             ))}
           </div>
         </div>

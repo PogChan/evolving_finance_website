@@ -1,0 +1,23 @@
+.info_card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  padding: 105px 20px 20px;
+  background-color: var(--font-color-black);
+  color: var(--font-color-white);
+  font-family: Montserrat, sans-serif;
+
+  &__svg {
+    width: 60px;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &__text {
+    font-size: 15px;
+  }
+}
