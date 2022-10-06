@@ -2,15 +2,17 @@
 import type { NextPage } from 'next'
 import text from '@styles/modules/text.module.scss'
 import { useEffect } from 'react'
-import router from 'next/router'
+import { useRouter } from 'next/router'
 
 // Component
 const ErrorPage: NextPage = () => {
+  // Router
+  const { push } = useRouter()
   // Redirect
   useEffect(() => {
     // Interval
     const interval = setInterval(() => {
-      return router.push('/')
+      return push('/')
     }, 2000)
     return () => clearInterval(interval)
   }, [])

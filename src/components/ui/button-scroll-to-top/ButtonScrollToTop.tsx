@@ -1,11 +1,13 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 // Libs
 import React, { FC, memo, useEffect, useState } from 'react'
 import styles from './button-scroll-to-top.module.scss'
 import { getDeviceType } from '@services'
+import { useRouter } from 'next/router'
 
 // Component
 const ButtonScrollToTop: FC = () => {
+  // Router
+  const { route } = useRouter()
   // Device type
   const [deviceType, setDeviceType] = useState<'desktop' | 'tablet' | 'mobile' | null>(null)
   // Button active
@@ -44,13 +46,13 @@ const ButtonScrollToTop: FC = () => {
       // Return
       prevScrollPosition = currentScrollPosition
     }
-  }, [])
+  }, [route])
   // Watch from device type
   useEffect(() => {
     if (deviceType !== getDeviceType()) {
       setDeviceType(getDeviceType())
     }
-  }, [getDeviceType()])
+  }, [])
 
   // Return
   return (

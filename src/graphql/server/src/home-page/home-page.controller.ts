@@ -12,6 +12,13 @@ export const homePageTypeDefs = gql`
     title: String!
     text: String!
   }
+  #  Info list 2
+  type InfoList2 {
+    img: String!
+    subTitle: String!
+    title: String!
+    text: String!
+  }
   #  Main block
   type MainBlock {
     subTitle: String!
@@ -27,6 +34,11 @@ export const homePageTypeDefs = gql`
     underTitle: String!
     infoList: [InfoList!]!
   }
+  #  Center block C
+  type CenterBlockC {
+    title: String!
+    infoList: [InfoList2!]!
+  }
   #  Bottom block
   type BottomBlock {
     title: String!
@@ -39,6 +51,7 @@ export const homePageTypeDefs = gql`
     centerBlockA: CenterBlockA!
     centerBlockB: String!
     blockBottom: BottomBlock!
+    centerBlockC: CenterBlockC!
   }
 
   type Data {

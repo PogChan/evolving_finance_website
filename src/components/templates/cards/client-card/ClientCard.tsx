@@ -16,7 +16,7 @@ const ClientCard: FC<IClientCard> = ({ icon, text, title }) => {
   return (
     <div className={styles.client_card}>
       <div className={styles.client_card__photo}>
-        <LazyImage src={icon} width={89} height={89} />
+        <LazyImage src={icon} width={300} height={300} />
       </div>
 
       <p className={styles.client_card__text}>{text}</p>

@@ -36,7 +36,12 @@ const Home: NextPage = () => {
   // Return
   return (
     <>
-      <div className={`${container.container_main} ${styles.home_page}`}>
+      <div
+        style={{
+          backgroundImage: `url(${data?.mainBlock.bgImg})`,
+        }}
+        className={`${container.container_main} ${styles.home_page}`}
+      >
         <div
           className={`${container.container_top} ${container.container_100vh} ${styles.home_page__main_block}`}
         >
@@ -104,6 +109,41 @@ const Home: NextPage = () => {
       </div>
 
       <div className={`${container.container_main} ${styles.home_page}`}>
+        <div className={styles.home_page__center_block_c}>
+          <h3 className={`${text.h_1} ${styles.home_page__center_block_c__title}`}>
+            {parse(data?.centerBlockC.title || '')}
+
+            <span className={styles.home_page__center_block_c__line}>
+              <LineIco />
+            </span>
+          </h3>
+
+          <div className={styles.home_page__center_block_c__info_list}>
+            {data?.centerBlockC.infoList.map((el, i) => (
+              <div
+                key={`${el.title} ${i}`}
+                className={`${styles.home_page__center_block_c__info_item} ${
+                  i % 2 !== 0 ? styles.revers : ''
+                }`}
+              >
+                <LazyImage src={el.img} width={578} height={350} objectFit={'contain'} />
+
+                <div className={styles.home_page__center_block_c__description}>
+                  <p className={`${text.p_m} ${text.color_gold} ${text.font_montserrat}`}>
+                    {parse(el.subTitle)}
+                  </p>
+
+                  <div className={text.h_3}>{parse(el.title)}</div>
+
+                  <p className={text.p_m}>{parse(el.text)}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className={`${container.container_main} ${styles.home_page}`}>
         <div className={styles.home_page__bottom_block}>
           <h3 className={`${text.h_1} ${styles.home_page__bottom_block__title}`}>
             {parse(data?.blockBottom.title || '')}
@@ -132,25 +172,25 @@ const Home: NextPage = () => {
 export default Home
 
 // Ssr
-export async function getStaticProps() {
-  const apolloClient = initializeApollo()
-  // Home page data
-  await apolloClient.query({
-    query: GetHomePageDocument,
-    variables: {
-      input: {
-        search: '',
-      },
-    },
-  })
-  // Header data
-  await apolloClient.query({ query: GetHeaderDocument })
-  // Footer data
-  await apolloClient.query({ query: GetFooterDocument })
-
-  // Return
-  return addApolloState(apolloClient, {
-    props: {},
-    revalidate: 1,
-  })
-}
+// export async function getStaticProps() {
+//   const apolloClient = initializeApollo()
+//   // Home page data
+//   await apolloClient.query({
+//     query: GetHomePageDocument,
+//     variables: {
+//       input: {
+//         search: '',
+//       },
+//     },
+//   })
+//   // Header data
+//   await apolloClient.query({ query: GetHeaderDocument })
+//   // Footer data
+//   await apolloClient.query({ query: GetFooterDocument })
+//
+//   // Return
+//   return addApolloState(apolloClient, {
+//     props: {},
+//     revalidate: 1,
+//   })
+// }

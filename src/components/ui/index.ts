@@ -1,3 +1,9 @@
+import dynamic from 'next/dynamic'
+
 export { default as Button } from './button/Button'
-export { default as ButtonBurgerMenu } from './button-burger-menu/ButtonBurgerMenu'
-export { default as ButtonScrollToTop } from './button-scroll-to-top/ButtonScrollToTop'
+export const ButtonBurgerMenu = dynamic(() => import('./button-burger-menu/ButtonBurgerMenu'), {
+  ssr: false,
+})
+export const ButtonScrollToTop = dynamic(() => import('./button-scroll-to-top/ButtonScrollToTop'), {
+  ssr: false,
+})

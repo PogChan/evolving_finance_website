@@ -27,6 +27,7 @@ const Header: FC = () => {
             width={228}
             height={67}
             src={`${data?.getHeader?.data[0]?.headerLogo}` || ''}
+            quality={75}
           />
         </div>
 

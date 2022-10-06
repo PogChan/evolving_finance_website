@@ -5,13 +5,14 @@
   width: 45px;
   height: 45px;
   bottom: 20px;
-  left: calc(100% - 40px);
+  left: calc(100% - 45px);
   background-color: #000000;
   border: 2px solid var(--body-bg-color-gold);
   border-radius: 50%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.75);
   transform: translate(-100%, calc(120% + 20px));
   transition: transform 0.25s ease-in-out;
+  z-index: 9;
 
   &:after {
     content: '';

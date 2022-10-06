@@ -30,6 +30,12 @@ export type CenterBlockA = {
   underTitle: Scalars['String'];
 };
 
+export type CenterBlockC = {
+  __typename?: 'CenterBlockC';
+  infoList: Array<InfoList2>;
+  title: Scalars['String'];
+};
+
 export type Data = {
   __typename?: 'Data';
   data: Array<Maybe<HomePage>>;
@@ -74,6 +80,7 @@ export type HomePage = {
   blockBottom: BottomBlock;
   centerBlockA: CenterBlockA;
   centerBlockB: Scalars['String'];
+  centerBlockC: CenterBlockC;
   id: Scalars['String'];
   mainBlock: MainBlock;
 };
@@ -81,6 +88,14 @@ export type HomePage = {
 export type InfoList = {
   __typename?: 'InfoList';
   icon: Scalars['String'];
+  text: Scalars['String'];
+  title: Scalars['String'];
+};
+
+export type InfoList2 = {
+  __typename?: 'InfoList2';
+  img: Scalars['String'];
+  subTitle: Scalars['String'];
   text: Scalars['String'];
   title: Scalars['String'];
 };
@@ -150,7 +165,7 @@ export type GetHomePageQueryVariables = Exact<{
 }>;
 
 
-export type GetHomePageQuery = { __typename?: 'Query', getHomePage?: { __typename?: 'Data', data: Array<{ __typename?: 'HomePage', id: string, centerBlockB: string, mainBlock: { __typename?: 'MainBlock', subTitle: string, title: string, underTitle: string, bgImg: string, primaryBtn: { __typename?: 'btnLink', href: string, name: string }, secondaryBtn: { __typename?: 'btnLink', href: string, name: string } }, centerBlockA: { __typename?: 'CenterBlockA', title: string, underTitle: string, infoList: Array<{ __typename?: 'InfoList', icon: string, title: string, text: string }> }, blockBottom: { __typename?: 'BottomBlock', title: string, listClients: Array<{ __typename?: 'InfoList', icon: string, text: string, title: string }> } } | null> } | null };
+export type GetHomePageQuery = { __typename?: 'Query', getHomePage?: { __typename?: 'Data', data: Array<{ __typename?: 'HomePage', id: string, centerBlockB: string, mainBlock: { __typename?: 'MainBlock', subTitle: string, title: string, underTitle: string, bgImg: string, primaryBtn: { __typename?: 'btnLink', href: string, name: string }, secondaryBtn: { __typename?: 'btnLink', href: string, name: string } }, centerBlockA: { __typename?: 'CenterBlockA', title: string, underTitle: string, infoList: Array<{ __typename?: 'InfoList', icon: string, title: string, text: string }> }, centerBlockC: { __typename?: 'CenterBlockC', title: string, infoList: Array<{ __typename?: 'InfoList2', img: string, subTitle: string, title: string, text: string }> }, blockBottom: { __typename?: 'BottomBlock', title: string, listClients: Array<{ __typename?: 'InfoList', icon: string, text: string, title: string }> } } | null> } | null };
 
 
 
@@ -224,6 +239,7 @@ export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   BottomBlock: ResolverTypeWrapper<BottomBlock>;
   CenterBlockA: ResolverTypeWrapper<CenterBlockA>;
+  CenterBlockC: ResolverTypeWrapper<CenterBlockC>;
   Data: ResolverTypeWrapper<Data>;
   DataFooter: ResolverTypeWrapper<DataFooter>;
   DataHeader: ResolverTypeWrapper<DataHeader>;
@@ -232,6 +248,7 @@ export type ResolversTypes = {
   Header: ResolverTypeWrapper<Header>;
   HomePage: ResolverTypeWrapper<HomePage>;
   InfoList: ResolverTypeWrapper<InfoList>;
+  InfoList2: ResolverTypeWrapper<InfoList2>;
   InputHomePage: InputHomePage;
   Link: ResolverTypeWrapper<Link>;
   Links: ResolverTypeWrapper<Links>;
@@ -247,6 +264,7 @@ export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
   BottomBlock: BottomBlock;
   CenterBlockA: CenterBlockA;
+  CenterBlockC: CenterBlockC;
   Data: Data;
   DataFooter: DataFooter;
   DataHeader: DataHeader;
@@ -255,6 +273,7 @@ export type ResolversParentTypes = {
   Header: Header;
   HomePage: HomePage;
   InfoList: InfoList;
+  InfoList2: InfoList2;
   InputHomePage: InputHomePage;
   Link: Link;
   Links: Links;
@@ -275,6 +294,12 @@ export type CenterBlockAResolvers<ContextType = any, ParentType extends Resolver
   infoList?: Resolver<Array<ResolversTypes['InfoList']>, ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   underTitle?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type CenterBlockCResolvers<ContextType = any, ParentType extends ResolversParentTypes['CenterBlockC'] = ResolversParentTypes['CenterBlockC']> = {
+  infoList?: Resolver<Array<ResolversTypes['InfoList2']>, ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -321,6 +346,7 @@ export type HomePageResolvers<ContextType = any, ParentType extends ResolversPar
   blockBottom?: Resolver<ResolversTypes['BottomBlock'], ParentType, ContextType>;
   centerBlockA?: Resolver<ResolversTypes['CenterBlockA'], ParentType, ContextType>;
   centerBlockB?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  centerBlockC?: Resolver<ResolversTypes['CenterBlockC'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   mainBlock?: Resolver<ResolversTypes['MainBlock'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
@@ -328,6 +354,14 @@ export type HomePageResolvers<ContextType = any, ParentType extends ResolversPar
 
 export type InfoListResolvers<ContextType = any, ParentType extends ResolversParentTypes['InfoList'] = ResolversParentTypes['InfoList']> = {
   icon?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  text?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type InfoList2Resolvers<ContextType = any, ParentType extends ResolversParentTypes['InfoList2'] = ResolversParentTypes['InfoList2']> = {
+  img?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  subTitle?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   text?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
@@ -376,6 +410,7 @@ export type BtnLinkResolvers<ContextType = any, ParentType extends ResolversPare
 export type Resolvers<ContextType = any> = {
   BottomBlock?: BottomBlockResolvers<ContextType>;
   CenterBlockA?: CenterBlockAResolvers<ContextType>;
+  CenterBlockC?: CenterBlockCResolvers<ContextType>;
   Data?: DataResolvers<ContextType>;
   DataFooter?: DataFooterResolvers<ContextType>;
   DataHeader?: DataHeaderResolvers<ContextType>;
@@ -384,6 +419,7 @@ export type Resolvers<ContextType = any> = {
   Header?: HeaderResolvers<ContextType>;
   HomePage?: HomePageResolvers<ContextType>;
   InfoList?: InfoListResolvers<ContextType>;
+  InfoList2?: InfoList2Resolvers<ContextType>;
   Link?: LinkResolvers<ContextType>;
   Links?: LinksResolvers<ContextType>;
   MainBlock?: MainBlockResolvers<ContextType>;
@@ -524,6 +560,15 @@ export const GetHomePageDocument = gql`
         }
       }
       centerBlockB
+      centerBlockC {
+        title
+        infoList {
+          img
+          subTitle
+          title
+          text
+        }
+      }
       blockBottom {
         title
         listClients {

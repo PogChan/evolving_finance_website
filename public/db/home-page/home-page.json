@@ -42,6 +42,29 @@
       ]
     },
     "centerBlockB": "/db/home-page/images/center-block-b-img.png",
+    "centerBlockC": {
+      "title": "Leverage market data to make smarter trading decisions",
+      "infoList": [
+        {
+          "img": "/db/home-page/images/center-block-c-1-img.png",
+          "subTitle": "OPTION FLOW DATA",
+          "title": "The most strategic way of tracking Smart Money",
+          "text": "<i>We here at the Evolving Finance Institute have compiled the best filters and screeners that allow us to properly visualize the highest probability Flow Trades. Applying our \nunderstanding of the Options data we then categorize them into a series of 3 Trading styles as follows: Aggressive bet, Tag Trade, or Classic trade</i>"
+        },
+        {
+          "img": "/db/home-page/images/center-block-c-2-img.png",
+          "subTitle": "SEASONALITY CYCLES",
+          "title": "The path to understanding repetitive behaviors of Market",
+          "text": "<i>Combining Seasonality trends with the Economic/Business cycles helps traders identify periods of strength and weakness within the Stock Market. Cycles such as the midterm election cycles can also be used to anticipate future movements in the overall Markets. The data provided helps Traders/Investors understand the timing in which the Markets are suitable for a Bull Market or when they are heading into periods of lackluster performance.</i>"
+        },
+        {
+          "img": "/db/home-page/images/center-block-c-3-img.png",
+          "subTitle": "SCENARIO ANALYSIS",
+          "title": "The study of the probabilities in the price action repeating certain behaviors",
+          "text": "<i>Using a series of theories ranging from Elliot Wave sequences to Market Maker Cycles we can anticipate future directional trends in the Markets. Here at the Institute, we focus on teaching students the functionality and reasoning behind Standard Deviation Channels, Average Movements, Momentum, Buying/Selling pressure, and expected movements. Students are also taught the Human Psychology between certain human behaviors to help manage their emotions and trading \nrecords.</i>"
+        }
+      ]
+    },
     "blockBottom": {
       "title": "Terminal clients testimonials",
       "listClients": [
