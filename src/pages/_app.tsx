@@ -12,12 +12,15 @@ import { useEffect } from 'react'
 
 // App
 function MyApp({ Component, pageProps }: AppProps) {
-  // Watch from scroll
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
   // GraphQL entry point
   const client = useApollo(pageProps)
+  // Watch from scroll
+  useEffect(() => {
+    const html = document.querySelector('html')
+
+    const x = setTimeout(() => html?.scroll(0, 0), 110)
+    return () => clearTimeout(x)
+  }, [])
 
   // Return
   return (
