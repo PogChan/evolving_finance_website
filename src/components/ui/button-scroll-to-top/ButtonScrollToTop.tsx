@@ -1,7 +1,6 @@
 // Libs
 import React, { FC, memo, useEffect, useState } from 'react'
 import styles from './button-scroll-to-top.module.scss'
-import { getDeviceType } from '@services'
 import { useRouter } from 'next/router'
 
 // Component
@@ -18,6 +17,21 @@ const ButtonScrollToTop: FC = () => {
       top: 0,
       behavior: 'smooth',
     })
+  // Device type
+  const getDeviceType = () => {
+    const ua = navigator.userAgent
+    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+      return 'tablet'
+    }
+    if (
+      /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+        ua,
+      )
+    ) {
+      return 'mobile'
+    }
+    return 'desktop'
+  }
   // Watch from scroll
   useEffect(() => {
     // Header
@@ -29,7 +43,7 @@ const ButtonScrollToTop: FC = () => {
       // Current position
       const currentScrollPosition = window.scrollY
       // Button to top control
-      if (prevScrollPosition > currentScrollPosition && currentScrollPosition > 200) {
+      if (prevScrollPosition > currentScrollPosition && currentScrollPosition > 60) {
         setButtonActive(true)
       } else setButtonActive(false)
       // Header control
