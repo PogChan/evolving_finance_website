@@ -18,8 +18,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const html = document.querySelector('html')
 
-    const x = setTimeout(() => html?.scroll(0, 0), 110)
-    return () => clearTimeout(x)
+    const scrollToTop = setTimeout(() => html?.scroll(0, 0), 110)
+    return () => clearTimeout(scrollToTop)
   }, [])
 
   // Return
