@@ -68,11 +68,11 @@ export type FooterLinks = {
 
 export type Header = {
   __typename?: 'Header';
+  headerBtnA: Link;
+  headerBtnB: Link;
   headerLogo: Scalars['String'];
   headerNavMenu?: Maybe<Array<Link>>;
   id: Scalars['String'];
-  loginBtn: Link;
-  startHereBtn: Link;
 };
 
 export type HomePage = {
@@ -158,7 +158,7 @@ export type GetFooterQuery = { __typename?: 'Query', getFooter?: { __typename?: 
 export type GetHeaderQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetHeaderQuery = { __typename?: 'Query', getHeader?: { __typename?: 'DataHeader', data: Array<{ __typename?: 'Header', id: string, headerLogo: string, headerNavMenu?: Array<{ __typename?: 'Link', name: string, href: string }> | null, loginBtn: { __typename?: 'Link', name: string, href: string }, startHereBtn: { __typename?: 'Link', name: string, href: string } } | null> } | null };
+export type GetHeaderQuery = { __typename?: 'Query', getHeader?: { __typename?: 'DataHeader', data: Array<{ __typename?: 'Header', id: string, headerLogo: string, headerNavMenu?: Array<{ __typename?: 'Link', name: string, href: string }> | null, headerBtnA: { __typename?: 'Link', name: string, href: string }, headerBtnB: { __typename?: 'Link', name: string, href: string } } | null> } | null };
 
 export type GetHomePageQueryVariables = Exact<{
   input: InputHomePage;
@@ -334,11 +334,11 @@ export type FooterLinksResolvers<ContextType = any, ParentType extends Resolvers
 };
 
 export type HeaderResolvers<ContextType = any, ParentType extends ResolversParentTypes['Header'] = ResolversParentTypes['Header']> = {
+  headerBtnA?: Resolver<ResolversTypes['Link'], ParentType, ContextType>;
+  headerBtnB?: Resolver<ResolversTypes['Link'], ParentType, ContextType>;
   headerLogo?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   headerNavMenu?: Resolver<Maybe<Array<ResolversTypes['Link']>>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  loginBtn?: Resolver<ResolversTypes['Link'], ParentType, ContextType>;
-  startHereBtn?: Resolver<ResolversTypes['Link'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -492,11 +492,11 @@ export const GetHeaderDocument = gql`
         name
         href
       }
-      loginBtn {
+      headerBtnA {
         name
         href
       }
-      startHereBtn {
+      headerBtnB {
         name
         href
       }

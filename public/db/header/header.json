@@ -5,32 +5,32 @@
     "headerNavMenu": [
       {
         "name": "Product & Features",
-        "href": "/product-and-features"
+        "href": "https://payrole.io/store?seller=6287252bb287ec001aea455a"
       },
       {
         "name": "Solutions",
-        "href": "/solutions"
+        "href": "#block-a"
       },
       {
         "name": "Contact Us",
-        "href": "/contact-us"
+        "href": "https://discord.gg/efi"
       },
       {
         "name": "Resources",
-        "href": "/resources"
+        "href": "#block-c"
       },
       {
         "name": "About Us",
-        "href": "/about-us"
+        "href": "#block-a"
       }
     ],
-    "loginBtn": {
-      "name": "Log In",
-      "href": "/"
+    "headerBtnA": {
+      "name": "Join Discord Chat",
+      "href": "https://discord.gg/efi"
     },
-    "startHereBtn": {
-      "name": "Start Here",
-      "href": "/"
+    "headerBtnB": {
+      "name": "Subscribe Now",
+      "href": "https://payrole.io/store?seller=6287252bb287ec001aea455a"
     }
   }
 ]

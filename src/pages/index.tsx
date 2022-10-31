@@ -12,16 +12,14 @@ import {
 } from '@generated/graphql'
 import parse from 'html-react-parser'
 import { Button } from '@components/ui'
-import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 import { LazyImage } from '@components/elements'
 import { LineIco } from '@constants/icons'
 import { ClientCard, InfoCard } from '@components/templates'
+import Link from 'next/link'
 
 // Page
 const Home: NextPage = () => {
-  // Router
-  const { push } = useRouter()
   // Get home page
   const { data: dataServer } = useGetHomePageQuery({
     variables: {
@@ -59,23 +57,28 @@ const Home: NextPage = () => {
             </p>
 
             <div className={styles.home_page__main_block__btns}>
-              <Button
-                onClick={() => push(data?.mainBlock.primaryBtn.href || '')}
-                variant={'secondary'}
-                size={'large'}
-              >
-                {data?.mainBlock.primaryBtn.name}
-              </Button>
+              <Link href={data?.mainBlock.primaryBtn.href || ''}>
+                <a target={'_blank'} rel={'noopener noreferrer'}>
+                  <Button variant={'secondary'} size={'large'}>
+                    {data?.mainBlock.primaryBtn.name}
+                  </Button>
+                </a>
+              </Link>
 
-              <Button onClick={() => push(data?.mainBlock.secondaryBtn.href || '')} size={'large'}>
-                {data?.mainBlock.secondaryBtn.name}
-              </Button>
+              <Link href={data?.mainBlock.secondaryBtn.href || ''}>
+                <a target={'_blank'} rel={'noopener noreferrer'}>
+                  <Button size={'large'}>{data?.mainBlock.secondaryBtn.name}</Button>
+                </a>
+              </Link>
             </div>
           </div>
         </div>
       </div>
 
-      <div className={`${container.container_main} ${styles.home_page__center_block_a}`}>
+      <div
+        className={`${container.container_main} ${styles.home_page__center_block_a}`}
+        id={'block-a'}
+      >
         <div className={styles.home_page__center_block_a__content}>
           <div className={styles.home_page__center_block_a__description}>
             <h2 className={text.h_2}>{parse(data?.centerBlockA.title || '')}</h2>
@@ -108,7 +111,7 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className={`${container.container_main} ${styles.home_page}`}>
+      <div className={`${container.container_main} ${styles.home_page}`} id={'block-c'}>
         <div className={styles.home_page__center_block_c}>
           <h3 className={`${text.h_1} ${styles.home_page__center_block_c__title}`}>
             {parse(data?.centerBlockC.title || '')}
@@ -133,7 +136,9 @@ const Home: NextPage = () => {
                     {parse(el.subTitle)}
                   </p>
 
-                  <div className={text.h_3}>{parse(el.title)}</div>
+                  <div className={text.h_3} style={{ maxWidth: '455px' }}>
+                    {parse(el.title)}
+                  </div>
 
                   <p className={text.p_m}>{parse(el.text)}</p>
                 </div>

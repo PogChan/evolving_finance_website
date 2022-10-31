@@ -6,6 +6,7 @@ import { useGetHeaderQuery } from '@generated/graphql'
 import { Button, ButtonBurgerMenu } from '@components/ui'
 import { NavLink } from '@components/templates'
 import { useAppContext } from '@stores/context'
+import Link from 'next/link'
 
 // Component
 const Header: FC = () => {
@@ -30,11 +31,21 @@ const Header: FC = () => {
           <NavLink navLinks={data?.getHeader?.data[0]?.headerNavMenu} />
         </div>
 
-        <div className={styles.header__log_in}>{data?.getHeader?.data[0]?.loginBtn.name}</div>
+        <Link href={data?.getHeader?.data[0]?.headerBtnA.href || ''}>
+          <a className={styles.header__log_in} target={'_blank'} rel={'noopener noreferrer'}>
+            {data?.getHeader?.data[0]?.headerBtnA.name}
+          </a>
+        </Link>
 
-        <div className={styles.header__start_here_btn}>
-          <Button variant={'secondary'}>{data?.getHeader?.data[0]?.startHereBtn?.name}</Button>
-        </div>
+        <Link href={data?.getHeader?.data[0]?.headerBtnB.href || ''}>
+          <a
+            target={'_blank'}
+            rel={'noopener noreferrer'}
+            className={styles.header__start_here_btn}
+          >
+            <Button variant={'secondary'}>{data?.getHeader?.data[0]?.headerBtnB?.name}</Button>
+          </a>
+        </Link>
 
         <div className={styles.header__burger_menu_btn} onClick={(e) => e.stopPropagation()}>
           <ButtonBurgerMenu value={burgerMenu} onChange={() => setBurgerMenu(!burgerMenu)} />

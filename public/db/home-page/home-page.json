@@ -6,12 +6,12 @@
       "title": "The Most Advanced Trading Terminal for all Traders",
       "underTitle": "Here at the Evolving Finance Institute, we pride ourselves on providing traders and investors alike with the most up-to-date information revolving around derivative markets and seasonality trends.",
       "primaryBtn": {
-        "href": "/",
-        "name": "Start a Free Trial"
+        "href": "https://discord.gg/efi",
+        "name": "Join Discord Chat"
       },
       "secondaryBtn": {
-        "href": "/",
-        "name": "Learn More"
+        "href": "https://payrole.io/store?seller=6287252bb287ec001aea455a",
+        "name": "Subscribe Now"
       },
       "bgImg": "/db/home-page/images/main-block-img.png"
     },
@@ -69,24 +69,19 @@
       "title": "Terminal clients testimonials",
       "listClients": [
         {
-          "icon": "/db/home-page/images/client-1-img.png",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          "title": "Simon G"
-        },
-        {
-          "icon": "/db/home-page/images/client-2-img.png",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "/db/home-page/images/Jason-K.png",
+          "text": "The education livestreams always shock me with information and ideas I never would of heard elsewhere.",
           "title": "Jason K"
         },
         {
-          "icon": "/db/home-page/images/client-3-img.png",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          "title": "Tyler S"
+          "icon": "/db/home-page/images/Isabella-K.png",
+          "text": "The data provided by this discord is unlike other, multile strategies that help in ever market condition.",
+          "title": "Isabella K"
         },
         {
-          "icon": "/db/home-page/images/client-4-img.png",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          "title": "Shun K"
+          "icon": "/db/home-page/images/Tyler-S.png",
+          "text": "This server is growing investors not dragging them into a get rich quick scheme.",
+          "title": "Tyler S"
         }
       ]
     }

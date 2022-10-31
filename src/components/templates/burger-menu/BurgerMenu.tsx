@@ -2,9 +2,9 @@
 import React, { FC, memo, useEffect } from 'react'
 import styles from './burger-menu.module.scss'
 import { useGetHeaderQuery } from '@generated/graphql'
-import { useRouter } from 'next/router'
 import { Button } from '@components/ui'
 import { NavLink } from '@components/templates'
+import Link from 'next/link'
 
 // Interface
 interface IBurgerMenu {
@@ -14,8 +14,6 @@ interface IBurgerMenu {
 
 // Component
 const BurgerMenu: FC<IBurgerMenu> = ({ active = false, setActive }) => {
-  // Router
-  const { push } = useRouter()
   // Change active
   const handleSetActive = () => setActive(!active)
   // Get header data
@@ -40,23 +38,21 @@ const BurgerMenu: FC<IBurgerMenu> = ({ active = false, setActive }) => {
           <NavLink variant={'column'} navLinks={data?.getHeader?.data[0]?.headerNavMenu} />
         </div>
 
-        <div
-          className={styles.burger_menu__link_btn}
-          onClick={() => push(data?.getHeader?.data[0]?.loginBtn.href || '')}
-        >
-          <Button className={styles.burger_menu__btn}>
-            {data?.getHeader?.data[0]?.loginBtn.name}
-          </Button>
-        </div>
+        <Link href={data?.getHeader?.data[0]?.headerBtnA.href || ''}>
+          <a className={styles.burger_menu__link_btn} target={'_blank'} rel={'noopener noreferrer'}>
+            <Button className={styles.burger_menu__btn}>
+              {data?.getHeader?.data[0]?.headerBtnA.name}
+            </Button>
+          </a>
+        </Link>
 
-        <div
-          className={styles.burger_menu__link_btn}
-          onClick={() => push(data?.getHeader?.data[0]?.loginBtn.href || '')}
-        >
-          <Button className={styles.burger_menu__btn} variant={'secondary'}>
-            {data?.getHeader?.data[0]?.startHereBtn.name}
-          </Button>
-        </div>
+        <Link href={data?.getHeader?.data[0]?.headerBtnB.href || ''}>
+          <a className={styles.burger_menu__link_btn} target={'_blank'} rel={'noopener noreferrer'}>
+            <Button className={styles.burger_menu__btn} variant={'secondary'}>
+              {data?.getHeader?.data[0]?.headerBtnB.name}
+            </Button>
+          </a>
+        </Link>
       </div>
     </div>
   )

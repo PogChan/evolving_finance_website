@@ -30,6 +30,12 @@
 
       &__btns {
         grid-template-columns: repeat(2, auto);
+
+        & a {
+          & > * {
+            width: 100%;
+          }
+        }
       }
 
       &__description {
@@ -281,6 +287,10 @@
       &__line {
         right: 0;
         transform: translate(0, 0);
+      }
+
+      &__list_clients {
+        grid-gap: 40px;
       }
     }
   }

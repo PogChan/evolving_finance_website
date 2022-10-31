@@ -11,8 +11,8 @@ export const headerTypeDefs = gql`
     id: String!
     headerLogo: String!
     headerNavMenu: [Link!]
-    loginBtn: Link!
-    startHereBtn: Link!
+    headerBtnA: Link!
+    headerBtnB: Link!
   }
   #  Data header
   type DataHeader {

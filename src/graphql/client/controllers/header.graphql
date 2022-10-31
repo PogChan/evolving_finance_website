@@ -7,11 +7,11 @@ query GetHeader {
         name
         href
       }
-      loginBtn {
+      headerBtnA {
         name
         href
       }
-      startHereBtn {
+      headerBtnB {
         name
         href
       }

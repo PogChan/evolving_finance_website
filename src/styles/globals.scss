@@ -80,4 +80,5 @@ a {
 ::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb-bg-color);
   border: 4px solid var(--scrollbar-thumb-border-color);
+  border-radius: 20px;
 }
