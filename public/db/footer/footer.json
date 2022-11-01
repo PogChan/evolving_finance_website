@@ -1,166 +1,23 @@
 [
   {
     "id": "footer",
-    "footerLinks": [
-      {
-        "name": "PRODUCT & FEATURES",
-        "links": [
-          {
-            "name": "For Financial Services",
-            "href": "/for-financial-services"
-          },
-          {
-            "name": "For Corporates",
-            "href": "/for-financial-services"
-          },
-          {
-            "name": "Content & Data Sources",
-            "href": "/for-financial-services"
-          },
-          {
-            "name": "Wall Street Insights",
-            "href": "/for-financial-services"
-          },
-          {
-            "name": "Technology",
-            "href": "/technology"
-          },
-          {
-            "name": "Security",
-            "href": "/security"
-          },
-          {
-            "name": "Pricing",
-            "href": "/pricing"
-          }
-        ]
-      },
-      {
-        "name": "SOLUTIONS",
-        "links": [
-          {
-            "name": "Consulting",
-            "href": "/consulting"
-          },
-          {
-            "name": "Consumer/CPG",
-            "href": "/for-financial-services"
-          },
-          {
-            "name": "Energy",
-            "href": "/energy"
-          },
-          {
-            "name": "Financial Services",
-            "href": "/for-financial-services"
-          },
-          {
-            "name": "Industrials",
-            "href": "/industrials"
-          },
-          {
-            "name": "Life Sciences",
-            "href": "/security"
-          },
-          {
-            "name": "Tech, Media, Telecom",
-            "href": "/pricing"
-          }
-        ]
-      },
-      {
-        "name": "CONTACT US",
-        "links": [
-          {
-            "name": "Customers Overview",
-            "href": "/consulting"
-          },
-          {
-            "name": "Case Studies",
-            "href": "/for-financial-services"
-          },
-          {
-            "name": "Help Center",
-            "href": "/help-center"
-          }
-        ]
-      },
-      {
-        "name": "RESOURCES",
-        "links": [
-          {
-            "name": "For Financial Services",
-            "href": "/consulting"
-          },
-          {
-            "name": "For Corporates",
-            "href": "/for-financial-services"
-          },
-          {
-            "name": "Content & Data Sources",
-            "href": "/energy"
-          },
-          {
-            "name": "Wall Street Insights",
-            "href": "/for-financial-services"
-          },
-          {
-            "name": "Technology",
-            "href": "/technology"
-          },
-          {
-            "name": "Security",
-            "href": "/security"
-          },
-          {
-            "name": "Pricing",
-            "href": "/pricing"
-          }
-        ]
-      },
-      {
-        "name": "ABOUT US",
-        "links": [
-          {
-            "name": "Resource Center",
-            "href": "/consulting"
-          },
-          {
-            "name": "Blog",
-            "href": "/blog"
-          },
-          {
-            "name": "Case Studies",
-            "href": "/energy"
-          },
-          {
-            "name": "Upcoming Events",
-            "href": "/for-financial-services"
-          },
-          {
-            "name": "Webcasts",
-            "href": "/webcasts"
-          },
-          {
-            "name": "Whitepapers & Guides",
-            "href": "/security"
-          }
-        ]
-      }
-    ],
     "footerSocialTitle": "SOCIAL",
     "footerSocialIcons": [
       {
-        "href": "https://facebook.com",
-        "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</svg>"
-      },
-      {
-        "href": "https://twitter.com",
+        "href": "https://twitter.com/RaderTrader101",
         "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M23 3.01006C22.0424 3.68553 20.9821 4.20217 19.86 4.54006C19.2577 3.84757 18.4573 3.35675 17.567 3.13398C16.6767 2.91122 15.7395 2.96725 14.8821 3.29451C14.0247 3.62177 13.2884 4.20446 12.773 4.96377C12.2575 5.72309 11.9877 6.62239 12 7.54006V8.54006C10.2426 8.58562 8.50127 8.19587 6.93101 7.4055C5.36074 6.61513 4.01032 5.44869 3 4.01006C3 4.01006 -1 13.0101 8 17.0101C5.94053 18.408 3.48716 19.109 1 19.0101C10 24.0101 21 19.0101 21 7.51006C20.9991 7.23151 20.9723 6.95365 20.92 6.68006C21.9406 5.67355 22.6608 4.40277 23 3.01006Z\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</svg>\n"
       },
       {
-        "href": "https://www.instagram.com",
+        "href": "http://www.instgram.com/radertrader",
         "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M16.0002 11.3703C16.1236 12.2025 15.9815 13.0525 15.594 13.7993C15.2065 14.5461 14.5933 15.1517 13.8418 15.53C13.0903 15.9082 12.2386 16.0399 11.408 15.9062C10.5773 15.7726 9.80996 15.3804 9.21503 14.7855C8.62011 14.1905 8.22793 13.4232 8.09426 12.5925C7.9606 11.7619 8.09226 10.9102 8.47052 10.1587C8.84878 9.40716 9.45438 8.79404 10.2012 8.40654C10.948 8.01904 11.7979 7.87689 12.6302 8.0003C13.4791 8.12619 14.265 8.52176 14.8719 9.12861C15.4787 9.73545 15.8743 10.5214 16.0002 11.3703Z\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M17.5 6.5H17.51\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</svg>"
+      },
+      {
+        "href": "https://www.youtube.com/channel/UCK7aUHSdFyYIIsTAps3KCIA",
+        "icon": "<svg width=\"22\" height=\"22\" fill=\"#ffffff\"  version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t viewBox=\"0 0 504 504\" style=\"enable-background:new 0 0 504 504;\" xml:space=\"preserve\">\n<g>\n\t<g>\n\t\t<polygon points=\"219.6,202.4 219.6,294.4 304.4,248.8 \t\t\"/>\n\t</g>\n</g>\n<g>\n\t<g>\n\t\t<path d=\"M377.6,0H126C56.8,0,0,56.8,0,126.4V378c0,69.2,56.8,126,126,126h251.6c69.6,0,126.4-56.8,126.4-126.4V126.4\n\t\t\tC504,56.8,447.2,0,377.6,0z M408,264.4c0,26.4-2.4,53.2-2.4,53.2s-2.8,22.4-12,32.4c-12,13.2-25.2,13.2-31.2,14\n\t\t\tc-44,3.2-110,3.6-110,3.6s-82-1.2-107.2-3.6c-6.8-1.2-22.8-0.8-34.8-14c-9.6-10-12-32.4-12-32.4S96,290.8,96,264.4v-24.8\n\t\t\tc0-26.4,2.4-53.2,2.4-53.2s2.8-22.4,12-32.4c12-13.2,25.2-13.6,31.2-14.4C186,136.4,252,136,252,136s66,0.4,110,3.6\n\t\t\tc6,0.8,19.6,1.2,31.6,14c9.6,10,12,32.8,12,32.8s2.4,26.8,2.4,53.2V264.4z\"/>\n\t</g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n</svg>\n"
+      },
+      {
+        "href": "https://www.tiktok.com/@radertrader",
+        "icon": "<svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M10 12C8.34315 12 7 13.3431 7 15C7 16.6569 8.34315 18 10 18C11.6569 18 13 16.6569 13 15V6C13.3333 7 14.6 9 17 9\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</svg>\n"
       }
     ],
     "footerBottomLinks": [

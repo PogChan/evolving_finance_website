@@ -6,10 +6,6 @@ export const footerTypeDefs = gql`
     name: String!
     href: String!
   }
-  type FooterLinks {
-    name: String!
-    links: [Links!]
-  }
   type SocialLinks {
     href: String!
     icon: String!
@@ -17,7 +13,6 @@ export const footerTypeDefs = gql`
   #  Footer
   type Footer {
     id: String!
-    footerLinks: [FooterLinks!]
     footerSocialTitle: String!
     footerSocialIcons: [SocialLinks!]
     footerBottomLinks: [Links!]

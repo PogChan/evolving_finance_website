@@ -1,41 +1,29 @@
 @import '@styles/breakpoints.scss';
 
 .footer {
+  display: grid;
+  justify-content: center;
+  align-items: center;
   background-color: var(--body-bg-color-footer);
 
   &__content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
-    padding: 52px 0 132px;
-    grid-gap: 20px;
+    grid-template-columns: 1fr;
+    padding: 52px 0 68px;
   }
 
   &__title {
     color: var(--font-color-gold);
     font-weight: 600;
     font-size: 15px;
-    margin-bottom: 14px;
+    margin: 0 auto 14px;
     text-align: left;
-  }
-
-  &__links {
-    cursor: pointer;
-    margin-top: 8px;
-    font-size: 13px;
-    color: #bdbdbd;
-    transition: color var(--transition);
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    @include hover {
-      color: var(--font-color-gold);
-    }
   }
 
   &__social_links {
     display: flex;
+    align-items: center;
+    margin: 0 auto;
     flex-direction: row;
 
     & > * {
@@ -56,6 +44,8 @@
 
   &__bottom_links {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     padding-bottom: 68px;
     font-weight: 600;
