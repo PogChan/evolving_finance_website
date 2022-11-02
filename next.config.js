@@ -8,7 +8,7 @@ const nextConfig = {
   swcMinify: true,
   // Env
   env: {
-    SITE_URL: dev ? 'http://localhost:3000' : 'https://evolving-finance.vercel.app',
+    SITE_URL: dev ? 'http://localhost:3000' : 'https://evolving-finance-website.vercel.app',
   },
   // Images domains
   images: {
