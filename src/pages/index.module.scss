@@ -23,6 +23,10 @@
       grid-gap: 15px;
       max-width: 100%;
       margin-top: 18px;
+
+      & button {
+        width: 100%;
+      }
     }
 
     @include tablet {
@@ -30,12 +34,6 @@
 
       &__btns {
         grid-template-columns: repeat(2, auto);
-
-        & a {
-          & > * {
-            width: 100%;
-          }
-        }
       }
 
       &__description {

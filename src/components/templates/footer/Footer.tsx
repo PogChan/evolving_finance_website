@@ -23,10 +23,8 @@ const Footer: FC = () => {
 
         <ul className={styles.footer__social_links}>
           {data?.getFooter?.data[0]?.footerSocialIcons?.map((el, i) => (
-            <li key={`${el.href} ${i}`}>
-              <a href={el.href} target={'_blank'} rel={'noreferrer noopener'}>
-                {parse(el.icon)}
-              </a>
+            <li key={`${el.href} ${i}`} onClick={() => window.open(el.href, '_ blank')}>
+              {parse(el.icon)}
             </li>
           ))}
         </ul>
