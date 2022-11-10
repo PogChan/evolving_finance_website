@@ -23,7 +23,7 @@ const Header: FC = () => {
       <m.header
         className={`${container.container_main} ${styles.header}`}
         onClick={() => burgerMenu && setBurgerMenu(false)}
-        custom={4}
+        custom={6}
         variants={appearanceAnim.topHidden}
         initial={'initial'}
         animate={'animate'}
