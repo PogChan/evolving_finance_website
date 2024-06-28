@@ -11,8 +11,8 @@
     "codegen": "graphql-codegen --config codegen.yml",
     "e2e": "cypress open",
     "e2e:run": "cypress run",
-    "test": "start-server-and-test dev http://localhost:3000 e2e",
-    "test:run": "start-server-and-test dev http://localhost:3000 e2e:run"
+    "test": "start-server-and-test dev http://localhost:3010 e2e",
+    "test:run": "start-server-and-test dev http://localhost:3010 e2e:run"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",

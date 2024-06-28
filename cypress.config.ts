@@ -4,7 +4,7 @@ import { defineConfig } from 'cypress'
 // Tests config
 export default defineConfig({
   env: {
-    gqlUrl: 'http://localhost:3000/api/graphql',
+    gqlUrl: 'http://localhost:3010/api/graphql',
   },
   defaultCommandTimeout: 5000,
   viewportWidth: 1024,
@@ -15,6 +15,6 @@ export default defineConfig({
     screenshotOnRunFailure: false,
     supportFile: 'tests/support/e2e.ts',
     specPattern: 'tests/e2e/**/*.test.ts',
-    baseUrl: 'http://localhost:3000',
+    baseUrl: 'http://localhost:3010',
   },
 })
