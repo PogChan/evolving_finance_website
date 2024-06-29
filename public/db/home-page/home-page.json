@@ -69,19 +69,14 @@
       "title": "Meet the Team",
       "listClients": [
         {
-          "icon": "/db/home-page/images/Zakaria-N.png",
+          "icon": "/db/home-page/images/Zak.png",
           "text": "Zak is the head trader here at the Evolving Finance Institute. With over 13 years of market experience, he was able to develop a unique market perspective and strategy that he now teaches everyday.",
           "title": "Zak"
         },
         {
-          "icon": "/db/home-page/images/Andrew-R.png",
-          "text": "Andrew Rader is an elite-tier trader in the EFI community. He is well-equipped with high-edge trading approaches in seasonality studies, Options Flow, algorithmic systems, and technical philosophies.",
-          "title": "Andrew Rader"
-        },
-        {
-          "icon": "/db/home-page/images/Kiersten-C.png",
-          "text": "Kiersten Crum is a sensational talent with natural skills in analyzing market fundamentals, technical, and mechanics. She enjoys providing value to the investing community through lessons and content creation.",
-          "title": "Kiersten Crum"
+          "icon": "/db/home-page/images/Allen.png",
+          "text": "Allen is an elite-tier trader and the lead full-stack developer at EFI. With over 4 years of market experience working with retail and institutional clients, he has developed an proprietary trading style through Zak's guidance and his research.",
+          "title": "Allen"
         }
       ]
     }
