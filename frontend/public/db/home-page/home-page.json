@@ -6,12 +6,12 @@
       "title": "The Most Advanced Trading Terminal for all Traders",
       "underTitle": "Here at the Evolving Finance Institute, we pride ourselves on providing traders and investors alike with the most up-to-date information revolving around derivative markets and seasonality trends.",
       "primaryBtn": {
-        "href": "https://efitracker.com",
-        "name": "Flow Tracker"
+        "href": "https://theraderreport.com/",
+        "name": "Rader Report"
       },
       "secondaryBtn": {
-        "href": "https://discord.com/efi",
-        "name": "Join The Discord"
+        "href": "https://efitracker.com",
+        "name": "Flow Tracker"
       },
       "bgImg": "/db/home-page/images/main-block-img.png"
     },
