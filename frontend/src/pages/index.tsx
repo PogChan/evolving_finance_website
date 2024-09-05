@@ -269,14 +269,26 @@ export default Home
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
   // Home page data
-  await apolloClient.query({
-    query: GetHomePageDocument,
-    variables: {
-      input: {
-        search: '',
+  try {
+    // Home page data
+    await apolloClient.query({
+      query: GetHomePageDocument,
+      variables: {
+        input: {
+          search: '',
+        },
       },
-    },
-  })
+    })
+  } catch (error) {
+    console.error('Failed to fetch home page data:', error)
+    // Return fallback or empty props to avoid breaking the build
+    return {
+      props: {
+        error: 'Failed to load home page data',
+      },
+      revalidate: 60, // You can try again after 60 seconds
+    }
+  }
   // Header data
   await apolloClient.query({ query: GetHeaderDocument })
   // Footer data
