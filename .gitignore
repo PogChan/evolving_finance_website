@@ -54,6 +54,7 @@ coverage.xml
 .hypothesis/
 
 # Environments
+.env.production
 .env/
 .envrc
 venv/

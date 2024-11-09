@@ -15,7 +15,7 @@
     "jsx": "preserve",
     "incremental": true,
     "sourceMap": true,
-    "declarationMap": true,
+    // "declarationMap": true,
     // SSR & SSG
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -23,46 +23,18 @@
     // Path & alias
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@constants/*": [
-        "src/constants/*"
-      ],
-      "@db/*": [
-        "public/db/*"
-      ],
-      "@generated/*": [
-        "src/generated/*"
-      ],
-      "@graphql/*": [
-        "src/graphql/*"
-      ],
-      "@hooks": [
-        "src/hooks"
-      ],
-      "@pages": [
-        "src/pages"
-      ],
-      "@services": [
-        "src/services"
-      ],
-      "@stores/*": [
-        "src/stores/*"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ]
+      "@components/*": ["src/components/*"],
+      "@constants/*": ["src/constants/*"],
+      "@db/*": ["public/db/*"],
+      "@generated/*": ["src/generated/*"],
+      "@graphql/*": ["src/graphql/*"],
+      "@hooks": ["src/hooks"],
+      "@pages": ["src/pages"],
+      "@services": ["src/services"],
+      "@stores/*": ["src/stores/*"],
+      "@styles/*": ["src/styles/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    ".next",
-    "node_modules",
-    "tests",
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": [".next", "node_modules", "tests"]
 }

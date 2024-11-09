@@ -1,16 +1,71 @@
+version: '3.8'  # Updated version for docker-compose features
+
 services:
   db:
     container_name: db
     image: postgres:14
+    env_file:
+      - ./backend/.env
     environment:
-      POSTGRES_USER: pogchan
-      POSTGRES_PASSWORD: 111844czy
-      POSTGRES_DB: efiterminal
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
-      - 5432:5432
+      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    networks:
+      - finance-network
 
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    env_file:
+      - ./backend/.env
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - finance-network
 
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3010:3010"
+    env_file:
+      - ./frontend/.env #Change based on the production frameowkr
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - finance-network
+  # nginx:
+  #   image: nginx:latest
+  #   container_name: nginx
+  #   ports:
+  #     - "443:443"  # HTTPS
+  #   volumes:
+  #     - ./nginx/nginx.conf:/etc/nginx/nginx.conf  # Nginx configuration file
+  #     - ./nginx/certs:/etc/nginx/certs            # SSL certificates
+  #   depends_on:
+  #     frontend:
+  #       condition: service_healthy
+  #     backend:
+  #       condition: service_healthy
+  #   networks:
+  #     - finance-network
 volumes:
   pgdata: {}
+
+networks:
+  finance-network:
+    driver: bridge
