@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 // Watch from type of development
-const dev = process.env.NODE_ENV !== 'production'
+// const dev = process.env.NODE_ENV !== 'production'
 
 // Config
 const nextConfig = {
@@ -8,7 +8,7 @@ const nextConfig = {
   swcMinify: true,
   // Env
   env: {
-    SITE_URL: dev ? 'http://localhost:3010' : 'https://efiterminal.com',
+    SITE_URL: process.env.SITE_URL,
   },
   // Images domains
   images: {
