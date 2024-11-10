@@ -4,20 +4,20 @@ services:
     image: postgres:14
     env_file:
       - ./backend/.env
-    environment:
-      - POSTGRES_DB=efiterminal
     volumes:
       - pgdata:/var/lib/postgresql/data
-      - ./backend/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+      # - ./backend/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
     ports:
       - "5432:5432"
     networks:
       - finance-network
+    # command: ["env"]
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER"]
+      test: ["CMD-SHELL", "pg_isready -U pogchan -d efiterminal -h db"]
       interval: 5s
       retries: 5
       timeout: 5s
+    restart: always
 
   backend:
     container_name: backend

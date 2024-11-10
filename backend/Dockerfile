@@ -3,8 +3,9 @@
 # Step 1: Use official Python image as a base
 FROM python:3.13-slim
 
-RUN printenv
-RUN apt-get update && apt-get install -y postgresql-client && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install -y curl postgresql-client && \
+    rm -rf /var/lib/apt/lists/*
 
 # Set the working directory in the container
 WORKDIR /app
@@ -17,7 +18,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Set environment variables for Django
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED=1
 ENV DJANGO_SETTINGS_MODULE=efiBackend.settings
 
 COPY migrate.sh /migrate.sh
