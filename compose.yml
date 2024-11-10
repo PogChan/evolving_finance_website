@@ -52,7 +52,7 @@ services:
       - "3010:3010"
     env_file:
       - ./frontend/.env
-      - ./frontend/.env.production
+      # - ./frontend/.env.production
     environment:
       - NODE_ENV=development  # Switch between production and development as needed
     depends_on:
@@ -60,7 +60,6 @@ services:
         condition: service_healthy
     networks:
       - finance-network
-
   # nginx:
   #   image: nginx:latest
   #   container_name: nginx
