@@ -12,7 +12,7 @@ const nextConfig = {
   },
   // Images domains
   images: {
-    domains: [''],
+    domains: ['efiterminal.com'],
   },
   // // Locale
   // i18n: {

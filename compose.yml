@@ -1,5 +1,3 @@
-version: '3.8'  # Updated version for docker-compose features
-
 services:
   db:
     container_name: db
@@ -7,15 +5,19 @@ services:
     env_file:
       - ./backend/.env
     environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-    ports:
-      - "5432:5432"
+      - POSTGRES_DB=efiterminal
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./backend/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+    ports:
+      - "5432:5432"
     networks:
       - finance-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER"]
+      interval: 5s
+      retries: 5
+      timeout: 5s
 
   backend:
     container_name: backend
@@ -28,11 +30,18 @@ services:
       - ./backend:/app
     env_file:
       - ./backend/.env
+    environment:
+      - ENVIRONMENT=development  # Toggle between production and development
     depends_on:
       db:
         condition: service_healthy
     networks:
       - finance-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   frontend:
     container_name: frontend
@@ -42,20 +51,24 @@ services:
     ports:
       - "3010:3010"
     env_file:
-      - ./frontend/.env #Change based on the production frameowkr
+      - ./frontend/.env
+      - ./frontend/.env.production
+    environment:
+      - NODE_ENV=development  # Switch between production and development as needed
     depends_on:
       backend:
         condition: service_healthy
     networks:
       - finance-network
+
   # nginx:
   #   image: nginx:latest
   #   container_name: nginx
   #   ports:
-  #     - "443:443"  # HTTPS
+  #     - "443:443"
   #   volumes:
-  #     - ./nginx/nginx.conf:/etc/nginx/nginx.conf  # Nginx configuration file
-  #     - ./nginx/certs:/etc/nginx/certs            # SSL certificates
+  #     - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+  #     - ./nginx/certs:/etc/nginx/certs
   #   depends_on:
   #     frontend:
   #       condition: service_healthy
@@ -63,6 +76,7 @@ services:
   #       condition: service_healthy
   #   networks:
   #     - finance-network
+
 volumes:
   pgdata: {}
 

@@ -3,6 +3,9 @@
 # Step 1: Use official Python image as a base
 FROM python:3.13-slim
 
+RUN printenv
+RUN apt-get update && apt-get install -y postgresql-client && rm -rf /var/lib/apt/lists/*
+
 # Set the working directory in the container
 WORKDIR /app
 
@@ -15,13 +18,12 @@ COPY . .
 
 # Set environment variables for Django
 ENV PYTHONUNBUFFERED 1
-ENV DJANGO_SETTINGS_MODULE=efiBackend.settings.development
+ENV DJANGO_SETTINGS_MODULE=efiBackend.settings
 
-# Collect ensure migrations
-RUN python manage.py migrate --noinput
-
+COPY migrate.sh /migrate.sh
+RUN chmod +x /migrate.sh
 # Expose the port for the web server
 EXPOSE 8000
 
-# Command to run Gunicorn (use in production)
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "mysite.wsgi:application"]
+# Define a default command that checks the environment
+CMD ["/migrate.sh"]
