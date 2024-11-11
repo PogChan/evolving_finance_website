@@ -50,11 +50,14 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3010:3010"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
     env_file:
       - ./frontend/.env
-      # - ./frontend/.env.production
     environment:
-      - NODE_ENV=development  # Switch between production and development as needed
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true
     depends_on:
       backend:
         condition: service_healthy

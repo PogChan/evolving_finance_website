@@ -1,41 +1,14 @@
 // Libs
-import React, {
-  createContext,
-  useContext,
-  useState,
-  ReactNode,
-  FC,
-  SetStateAction,
-  Dispatch,
-} from 'react'
-import { initialState } from './initial-state'
+import { create } from 'zustand'
 
-// Interface
-interface IAppContext {
+// Define the Zustand store interface
+interface AppState {
   burgerMenu: boolean
-  setBurgerMenu: Dispatch<SetStateAction<boolean>>
+  setBurgerMenu: (value: boolean) => void
 }
 
-// Create context
-const AppContext = createContext<IAppContext>({
-  burgerMenu: initialState.burgerMenu,
-  setBurgerMenu: (value) => value,
-})
-
-// Provider
-export const ContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  // Burger menu
-  const [burgerMenu, setBurgerMenu] = useState<IAppContext['burgerMenu']>(initialState.burgerMenu)
-
-  // Value
-  const value = {
-    burgerMenu,
-    setBurgerMenu,
-  }
-
-  // Provider
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>
-}
-
-// Hook context
-export const useAppContext = () => useContext(AppContext)
+// Create Zustand store
+export const useAppContext = create<AppState>((set) => ({
+  burgerMenu: false, // initial state for burgerMenu
+  setBurgerMenu: (value: boolean) => set({ burgerMenu: value }), // function to update burgerMenu
+}))

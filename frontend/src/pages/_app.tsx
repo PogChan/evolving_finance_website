@@ -3,8 +3,6 @@ import '@styles/globals.scss'
 // Apollo provider
 import { ApolloProvider } from '@apollo/client'
 import { useApollo } from '@graphql/client/connect'
-// Context
-import { ContextProvider } from '@stores/context'
 // Components
 import { Seo } from '@components/elements'
 import { Layout } from '@components/templates'
@@ -20,11 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Seo />
 
       <ApolloProvider client={client}>
-        <ContextProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ContextProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ApolloProvider>
     </>
   )
